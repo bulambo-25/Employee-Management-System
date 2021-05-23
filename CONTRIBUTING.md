@@ -3,9 +3,9 @@ Group 11 contribution guidelines
 
 This is the contribution guideline for our project, the Employee Management system.
 
-0. The team leader has 3 branches
+0. The team leader has 3 branches.
 
-1.main branch - this is where the team leader merges all the branches
+1.main branch - this is where the team leader merges all the branches.
 
 2. prototype branch - this branch can only be found
 on the team leaders repoitory.
