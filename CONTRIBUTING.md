@@ -8,7 +8,7 @@ This is the contribution guideline for our project, the Employee Management syst
 1.main branch - this is where the team leader merges all the branches.
 
 2. prototype branch - this branch can only be found
-on the team leaders repoitory.
+on the team leaders repository.
 
 3. 218257465 branch - this branch is named with the team leaders student number,
 on a team members repository it should be named with that team member's student number.
