@@ -31,7 +31,7 @@ then from your main branch to your student number branch.
 9. If a team member does not follow any of these guidelines, 
 the team leader will not accept the pull request of the team member.
 
-10. A comment will be attached if a team members pull request was not accepted.
+10. A comment will be attached if a team members pull request was not accepted..
 
 11. If a team member does not respond to the denied pull request
 another team member will fix the error and be credited as one of the authors
