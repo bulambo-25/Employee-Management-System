@@ -1,0 +1,79 @@
+/*Author Benelzane Kholani 218257465*/
+
+body{
+  margin:0 auto;
+  background-color: #222222;
+}
+
+.siteNav{
+  width: 20%;
+  background-color: #111111;
+  color: #A0A1A4;
+  height: 100vh;
+  text-align: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+}
+
+.picture{
+  width: 80px;
+  height: 80px;
+  background-color: #111111;
+}
+
+.ProfilePicture{
+  margin-top: 1.5%;
+}
+
+.adminHead{
+margin-left: 20.1%;
+color:#A0A1A4;
+font-weight: bold;
+}
+
+.menu{
+  width: 100%;
+  background-color: #111111;
+  font-size: 14pt;
+  height: 45px;
+  text-align: center;
+}
+
+.secondHeading{
+  margin-left: 1%;
+  margin-top: 0.5%;
+  font-size: 14pt;
+  font-weight: normal;
+}
+
+.table{
+  width: 70%;
+  margin-left: 1%;
+}
+
+table, th {
+  border-bottom: 0.5px ridge #F3E3d3;
+  border-collapse: collapse;
+  font-weight: normal;
+}
+
+table{
+  width: 100%;
+}
+
+.adminTasks{
+  margin-top: 20%;
+}
+
+.adminTasks .department, .employee{
+  height: 40px;
+  text-align: center;
+  margin-top: 0.5%;
+  background-color: #222222;
+  cursor: pointer;
+}
+
+ .department:hover, .employee:hover{
+  border-left: 3px solid #63CCC8;
+}

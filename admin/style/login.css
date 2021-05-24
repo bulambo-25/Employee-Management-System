@@ -1,0 +1,25 @@
+body{
+  background-color: #222222;
+}
+
+.form{
+  margin-top: 155px;
+}
+
+.adminForm{
+  height: 150px;
+  width: 25%;
+  margin:auto;
+  text-align: center;
+  color: white;
+}
+
+.adminName, .adminPass{
+  display: block;
+  margin:auto;
+  margin-top: 5px;
+  height: 25px;
+  width: 100%;
+  border: none;
+  font-size: 12pt;
+}
