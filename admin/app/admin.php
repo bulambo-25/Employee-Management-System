@@ -9,7 +9,6 @@ class Admin{
 //instance variables
 private $userName;
 private $password;
-private $isLoggedIn;
 
 /*public function __construct($userName, $password)
 {
@@ -26,10 +25,6 @@ public function GetPassword(){
   return $this->password;
 }//end of GetPassword method
 
-public function GetIsLoggedIn(){
-  return $this->isLoggedIn;
-}//end of GetIsLoggedIn method
-
 public function CreateSession(){
   session_start();
 }//end of CreateSession
@@ -39,13 +34,11 @@ public function authenticate(){
   $userStr = "(guest)";
 
   if(isset($_Session['user'])){
-    $this->userName   = $_Session['user'];
-    $this->isLoggedIn = TRUE;
-    $userStr          = "($user)";
+    $user     = $_Session['user'];
+    $userStr  = "($user)";
   }//end if
 
   else{
-    $this->isLoggedIn = FALSE;
     die(header("Location: login.php"));
   }//end else
 

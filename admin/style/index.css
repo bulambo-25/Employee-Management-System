@@ -1,6 +1,7 @@
 /*Author Benelzane Kholani 218257465*/
 
 body{
+  width: 100%;
   margin:0 auto;
   background-color: #222222;
 }
@@ -76,4 +77,65 @@ table{
 
  .department:hover, .employee:hover{
   border-left: 3px solid #63CCC8;
+}
+
+/*Popup window*/
+
+.popup{
+  background-color: rgb(17,17,17);
+  overflow: auto;
+  margin:5% 28%;
+  width: 50%;
+  height: 200px;
+  position: fixed;
+  z-index: 1;
+  display: none;
+}
+
+.closeButton{
+  font-size: 30pt;
+  float: right;
+  color: #A0A1A4;
+  margin-right: 3%;
+}
+
+.closeButton:hover{
+  cursor: pointer;
+  color:silver;
+}
+
+.popupForm{
+  margin: auto;
+  width: 75%;
+  margin-top: 75px;
+}
+
+.depName, .subButton{
+  display: block;
+  margin:2.5%
+}
+
+.depName{
+  width: 95%;
+  height: 26px;
+  border: none;
+  background-color: #222222;
+  font-size: 12pt;
+  color: #A0A1A4;
+}
+
+.subButton{
+  width: 55%;
+  height: 28px;
+  margin-left: 23%;
+  border: none;
+  background-color: #63CCC8;
+  font-size: 12pt;
+  color: #black;
+  cursor: pointer;
+}
+
+.subButton:hover{
+  background-color: #222222;
+  color: #A0A1A4;
 }

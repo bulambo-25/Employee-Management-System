@@ -25,7 +25,7 @@ Cole Colombia
 
 <div class="adminTasks">
 
-<div class="department" style="font-family:"><img src="../images/add_white_24dp.svg">
+<div id="addDep" class="department" style="font-family:"><img src="../images/add_white_24dp.svg">
   Add department</div>
 
 <div class="employee"><img src="../images/person_add_white_24dp.svg">
@@ -54,7 +54,25 @@ Cole Colombia
 
 </div>
 
+<div id="popUpWindow" class="popup">
+  <div>
+<span class="closeButton">&times;</span>
+</div>
+<div class="content">
+
+<div class="popupForm">
+<form class="" action="index.html" method="post">
+<input class="depName" type="text" name="" placeholder="Department name">
+<input class="subButton" type="submit" value="Create department">
+</form>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
   </body>
+  <script src="../javaScript/index.js" type="text/javascript"></script>
 </html>
