@@ -19,24 +19,45 @@
   <img class="picture" src="../images/person_black_24dp.svg" alt="">
 </div>
 
-<div class="name" z>
+<div class="name">
 Cole Colombia
 </div>
 
 <div class="adminTasks">
 
 <div id="addDep" class="department" style="font-family:"><img src="../images/add_white_24dp.svg">
-  Add department</div>
+Add department</div>
 
 <div class="employee"><img src="../images/person_add_white_24dp.svg">
   Add employee</div>
+
+  <div class="departments"><img src="../images/maps_home_work_white_24dp.svg">
+  Departments</div>
+
+  <div class="logout"><img src="../images/logout_white_24dp.svg">
+  Logout</div>
 
 </div>
 
 </div>
 
 <div class="adminHead">
-<div class="menu">Admin</div>
+
+
+<div class="menu">
+  <div class="heading">
+  Admin
+  </div>
+
+  <div id="notification" class="notify">
+  <img src="../images/notifications_white_24dp.svg">
+
+  <div class="notificationCounter">
+
+  </div>
+  </div>
+</div>
+
 <h2 class="secondHeading">Employees</h2>
 
 <div class="table">

@@ -41,6 +41,19 @@ font-weight: bold;
   text-align: center;
 }
 
+.heading, .notify{
+  display: inline-block;
+}
+
+.notify{
+  float: right;
+  margin-right: 2%;
+}
+
+.notify:hover{
+  cursor: pointer;
+}
+
 .secondHeading{
   margin-left: 1%;
   margin-top: 0.5%;
@@ -67,7 +80,7 @@ table{
   margin-top: 20%;
 }
 
-.adminTasks .department, .employee{
+.adminTasks .department, .employee, .departments, .logout{
   height: 40px;
   text-align: center;
   margin-top: 0.5%;
@@ -75,8 +88,12 @@ table{
   cursor: pointer;
 }
 
- .department:hover, .employee:hover{
+ .department:hover, .employee:hover, .departments:hover, .logout:hover{
   border-left: 3px solid #63CCC8;
+}
+
+.adminTasks img{
+  float: left;
 }
 
 /*Popup window*/
