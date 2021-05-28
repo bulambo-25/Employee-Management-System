@@ -83,7 +83,7 @@ Add department</div>
 
 <div class="popupForm">
 <form class="" action="index.html" method="post">
-<input class="depName" type="text" name="" placeholder="Department name">
+<input class="depName" type="text" name="" placeholder="Department name" required = "required" >
 <input class="subButton" type="submit" value="Create department">
 </form>
 </div>

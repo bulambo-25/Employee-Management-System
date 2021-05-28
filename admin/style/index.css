@@ -3,7 +3,7 @@
 body{
   width: 100%;
   margin:0 auto;
-  background-color: #222222;
+  background-color: white;
 }
 
 .siteNav{
@@ -29,7 +29,7 @@ body{
 
 .adminHead{
 margin-left: 20.1%;
-color:#A0A1A4;
+color:#111111;
 font-weight: bold;
 }
 
@@ -39,6 +39,7 @@ font-weight: bold;
   font-size: 14pt;
   height: 45px;
   text-align: center;
+  color:#A0A1A4;
 }
 
 .heading, .notify{
@@ -67,7 +68,7 @@ font-weight: bold;
 }
 
 table, th {
-  border-bottom: 0.5px ridge #F3E3d3;
+  border-bottom: 0.5px ridge #A0A1A4;
   border-collapse: collapse;
   font-weight: normal;
 }
@@ -90,6 +91,7 @@ table{
 
  .department:hover, .employee:hover, .departments:hover, .logout:hover{
   border-left: 3px solid #63CCC8;
+  color: silver;
 }
 
 .adminTasks img{
@@ -134,7 +136,7 @@ table{
 
 .depName{
   width: 95%;
-  height: 26px;
+  height: 32px;
   border: none;
   background-color: #222222;
   font-size: 12pt;
@@ -143,7 +145,7 @@ table{
 
 .subButton{
   width: 55%;
-  height: 28px;
+  height: 32px;
   margin-left: 23%;
   border: none;
   background-color: #63CCC8;
