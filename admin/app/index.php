@@ -26,16 +26,16 @@ Cole Colombia
 <div class="adminTasks">
 
 <div id="addDep" class="department" style="font-family:"><img src="../images/add_white_24dp.svg">
-Add department</div>
+<a>Add department</a></div>
 
-<div class="employee"><img src="../images/person_add_white_24dp.svg">
-  Add employee</div>
+<div id="add-Employees" class="employee"><img src="../images/person_add_white_24dp.svg">
+  <a>Add employee</a></div>
 
   <div class="departments"><img src="../images/maps_home_work_white_24dp.svg">
-  Departments</div>
+  <a>Departments</a></div>
 
   <div class="logout"><img src="../images/logout_white_24dp.svg">
-  Logout</div>
+  <a>Logout</a></div>
 
 </div>
 
@@ -45,6 +45,12 @@ Add department</div>
 
 
 <div class="menu">
+
+  <div id="search" class="searchUser">
+  <img src="../images/search_white_24dp.svg">
+  </div>
+
+
   <div class="heading">
   Admin
   </div>
@@ -53,8 +59,8 @@ Add department</div>
   <img src="../images/notifications_white_24dp.svg">
 
   <div class="notificationCounter">
-
   </div>
+
   </div>
 </div>
 
@@ -75,6 +81,7 @@ Add department</div>
 
 </div>
 
+<!--Add department popup form-->
 <div id="popUpWindow" class="popup">
   <div>
 <span class="closeButton">&times;</span>
@@ -85,6 +92,27 @@ Add department</div>
 <form class="" action="index.html" method="post">
 <input class="depName" type="text" name="" placeholder="Department name" required = "required" >
 <input class="subButton" type="submit" value="Create department">
+</form>
+</div>
+
+</div>
+
+</div>
+
+<!--Add employee popup form-->
+<div id="employee-popup" class="employee-window">
+  <div>
+<span class="closePopup">&times;</span>
+</div>
+<div class="emplyee-form">
+
+<div class="employee-details">
+<form class="" action="index.html" method="post">
+<input class="employee-name" type="text" name="" placeholder="name" required = "required">
+<input class="employee-sur" type="text" name="" placeholder="surname" required = "required">
+<input class="employee-id" type="text" name="" placeholder="identity number" required = "required">
+<input class="employee-tax" type="text" name="" placeholder="tax number" required = "required" >
+<input class="employee-submit" type="submit" value="Add employee">
 </form>
 </div>
 

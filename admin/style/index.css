@@ -3,7 +3,7 @@
 body{
   width: 100%;
   margin:0 auto;
-  background-color: white;
+  background-color: #222222;
 }
 
 .siteNav{
@@ -29,7 +29,7 @@ body{
 
 .adminHead{
 margin-left: 20.1%;
-color:#111111;
+color:#A0A1A4;
 font-weight: bold;
 }
 
@@ -40,10 +40,17 @@ font-weight: bold;
   height: 45px;
   text-align: center;
   color:#A0A1A4;
+  padding-top: 1%;
 }
 
-.heading, .notify{
+.searchUser, .heading, .notify{
   display: inline-block;
+}
+
+.searchUser{
+  float: left;
+  cursor: pointer;
+  margin-left:2%;
 }
 
 .notify{
@@ -63,8 +70,9 @@ font-weight: bold;
 }
 
 .table{
+  margin-top: 5%;
   width: 70%;
-  margin-left: 1%;
+  margin-left: 0.3%;
 }
 
 table, th {
@@ -81,24 +89,29 @@ table{
   margin-top: 20%;
 }
 
-.adminTasks .department, .employee, .departments, .logout{
+.department, .employee, .departments, .logout{
   height: 40px;
-  text-align: center;
   margin-top: 0.5%;
-  background-color: #222222;
+  background-color: #111111;
   cursor: pointer;
 }
 
  .department:hover, .employee:hover, .departments:hover, .logout:hover{
   border-left: 3px solid #63CCC8;
   color: silver;
+  background-color: #222222;
 }
 
 .adminTasks img{
   float: left;
 }
 
-/*Popup window*/
+.adminTasks a{
+  float: left;
+  margin-left: 5%;
+}
+
+/*Create department Popup window*/
 
 .popup{
   background-color: rgb(17,17,17);
@@ -145,7 +158,7 @@ table{
 
 .subButton{
   width: 55%;
-  height: 32px;
+  height: 34px;
   margin-left: 23%;
   border: none;
   background-color: #63CCC8;
@@ -155,6 +168,74 @@ table{
 }
 
 .subButton:hover{
+  background-color: #222222;
+  color: #A0A1A4;
+}
+
+/*Add employee*/
+.employee-window{
+  background-color: rgb(17,17,17);
+  overflow: auto;
+  margin:5% 28%;
+  width: 60%;
+  height: 250px;
+  position: fixed;
+  z-index: 1;
+  display: none;
+}
+
+.closePopup{
+  font-size: 30pt;
+  float: right;
+  color: #A0A1A4;
+  margin-right: 3%;
+}
+
+.closePopup:hover{
+  cursor: pointer;
+  color:silver;
+}
+
+.employee-details{
+  margin: auto;
+  width: 90%;
+  margin-top: 56px;
+  text-align: center;
+}
+
+.employee-name, .employee-sur{
+  display: inline-block;
+  margin:2%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #222222;
+  font-size: 12pt;
+  color: #A0A1A4;
+}
+
+.employee-id, .employee-tax{
+  display: inline-block;
+  margin:2%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #222222;
+  font-size: 12pt;
+  color: #A0A1A4;
+}
+
+.employee-submit{
+  width: 38%;
+  height: 38px;
+  background-color: #63CCC8;
+  cursor: pointer;
+  border: none;
+  font-size: 12pt;
+  color: #black;
+}
+
+.employee-submit:hover{
   background-color: #222222;
   color: #A0A1A4;
 }
