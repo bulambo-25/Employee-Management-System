@@ -27,3 +27,30 @@ addEmployee.addEventListener('click', ()=>{
 closePopup.addEventListener('click', ()=>{
   employeePopup.style.display = "none";
 });
+
+//fetch table names
+selectDepartment = document.querySelector("#selectedDepartment");
+
+document.addEventListener('DOMContentLoaded', ()=>{
+var xmlhttp = new XMLHttpRequest();
+
+xmlhttp.onreadystatechange = function() {
+
+if (this.readyState == 4 && this.status == 200) {
+    response = JSON.parse(this.responseText);
+    let depart = Object.values(response);
+
+    depart.forEach( (item)=> {
+    let options = document.createElement('option');
+    options.innerHTML = `
+    <option value="${item}">${item}</option>
+      `;
+    selectDepartment.appendChild(options);
+    });
+
+   }
+};
+xmlhttp.open("GET", "../../admin/json/departments.json", true);
+xmlhttp.send();
+}
+);

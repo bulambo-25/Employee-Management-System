@@ -55,7 +55,27 @@ font-weight: bold;
 
 .notify{
   float: right;
-  margin-right: 2%;
+  margin-right: 3%;
+  border: 1px solid black;
+}
+
+.notificationCounter{
+  width: 15px;
+  border: 1px solid white;
+  height: 15px;
+  border-radius: 35px;
+  background-color: #63CCC8;
+  z-index: 2;
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-size: 11pt;
+  display: none;
+}
+
+.notify img{
+  z-index: 1;
+  position: absolute;
 }
 
 .notify:hover{
@@ -118,7 +138,7 @@ table{
   overflow: auto;
   margin:5% 28%;
   width: 50%;
-  height: 200px;
+  height: 250px;
   position: fixed;
   z-index: 1;
   display: none;
@@ -140,6 +160,8 @@ table{
   margin: auto;
   width: 75%;
   margin-top: 75px;
+  text-align: center;
+  color: silver;
 }
 
 .depName, .subButton{
@@ -176,10 +198,11 @@ table{
 .employee-window{
   background-color: rgb(17,17,17);
   overflow: auto;
-  margin:5% 28%;
-  width: 60%;
-  height: 250px;
+  margin:5% 24%;
+  width: 70%;
+  height: 580px;
   position: fixed;
+  top:0;
   z-index: 1;
   display: none;
 }
@@ -196,16 +219,44 @@ table{
   color:silver;
 }
 
+.selectDepartment, .userPriviledge{
+  display: inline-block;
+  margin:1%;
+  width: 38.5%;
+  height: 32px;
+  border: none;
+  background-color: #222222;
+  font-size: 12pt;
+  color: #A0A1A4;
+}
+
+.selectDepartment:hover, .userPriviledge:hover{
+  cursor: pointer;
+}
+
+.addEmployeeHeading{
+  color: silver;
+}
+
+.label1, .label2{
+  display: inline-block;
+  color: silver;
+}
+
+.label1{
+  margin-right: 52%;
+}
+
 .employee-details{
   margin: auto;
   width: 90%;
-  margin-top: 56px;
+  margin-top: 35px;
   text-align: center;
 }
 
 .employee-name, .employee-sur{
   display: inline-block;
-  margin:2%;
+  margin:1%;
   width: 38%;
   height: 32px;
   border: none;
@@ -216,13 +267,69 @@ table{
 
 .employee-id, .employee-tax{
   display: inline-block;
-  margin:2%;
+  margin:1%;
   width: 38%;
   height: 32px;
   border: none;
   background-color: #222222;
   font-size: 12pt;
   color: #A0A1A4;
+}
+
+.employee-salary, .phone{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #222222;
+  font-size: 12pt;
+  color: #A0A1A4;
+}
+
+.streetAddress, .city{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #222222;
+  font-size: 12pt;
+  color: #A0A1A4;
+}
+
+ .zipCode, .province{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #222222;
+  font-size: 12pt;
+  color: #A0A1A4;
+}
+
+.country, .employeePicture{
+ display: inline-block;
+ margin:1%;
+ width: 38%;
+ height: 32px;
+ border: none;
+ background-color: #222222;
+ font-size: 12pt;
+ color: #A0A1A4;
+}
+
+.employeePicture::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.employeePicture::before {
+  content: 'upload picture';
+}
+
+.employeePicture:hover{
+  cursor: pointer;
 }
 
 .employee-submit{

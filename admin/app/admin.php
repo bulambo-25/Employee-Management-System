@@ -9,7 +9,7 @@ class Admin{
 //instance variables
 private $userName;
 private $password;
-
+private $picture;
 /*public function __construct($userName, $password)
 {
   $this->userName   = $userName;

@@ -1,4 +1,5 @@
 <!--Author: Kholani Benelzane 218257465-->
+<?php include "functions.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -34,7 +35,7 @@ Cole Colombia
   <div class="departments"><img src="../images/maps_home_work_white_24dp.svg">
   <a>Departments</a></div>
 
-  <div class="logout"><img src="../images/logout_white_24dp.svg">
+  <div class="logout"><img type="submit" src="../images/logout_white_24dp.svg">
   <a>Logout</a></div>
 
 </div>
@@ -59,6 +60,7 @@ Cole Colombia
   <img src="../images/notifications_white_24dp.svg">
 
   <div class="notificationCounter">
+  5
   </div>
 
   </div>
@@ -89,6 +91,7 @@ Cole Colombia
 <div class="content">
 
 <div class="popupForm">
+  <h2>Add Department</h2>
 <form class="" action="index.html" method="post">
 <input class="depName" type="text" name="" placeholder="Department name" required = "required" >
 <input class="subButton" type="submit" value="Create department">
@@ -106,13 +109,31 @@ Cole Colombia
 </div>
 <div class="emplyee-form">
 
+
+
 <div class="employee-details">
-<form class="" action="index.html" method="post">
-<input class="employee-name" type="text" name="" placeholder="name" required = "required">
-<input class="employee-sur" type="text" name="" placeholder="surname" required = "required">
-<input class="employee-id" type="text" name="" placeholder="identity number" required = "required">
-<input class="employee-tax" type="text" name="" placeholder="tax number" required = "required" >
-<input class="employee-submit" type="submit" value="Add employee">
+<h2 class="addEmployeeHeading">Add Employee</h2>
+<form class="form-fill" action="userRegistration.php" enctype="multipart/form-data" method="post">
+  <label class="label1" for="select">select department:</label><label class="label2" for="priviledge">select privilege:</label><br>
+  <select class="selectDepartment" id="selectedDepartment" name="select"></select>
+  <select class="userPriviledge" id="priviledge" name="priviledge">
+  <option value="low">low</option>
+  <option value="medium">medium</option>
+  <option value="high">high</option>
+  </select>
+<input class="employee-name" type="text" name="name" placeholder="name" required = "required">
+<input class="employee-sur" type="text" name="surname" placeholder="surname" required = "required">
+<input class="employee-id" type="text" name="identity" placeholder="identity number" required = "required">
+<input class="employee-tax" type="text" name="taxNumber" placeholder="tax number" required = "required">
+<input class="employee-salary" type="text" name="salary" placeholder="salary" required = "required">
+<input class="phone" type="text" name="phone" placeholder="phone" required = "required">
+<input class="streetAddress" type="text" name="street" placeholder="street address" required = "required">
+<input class="city" type="text" name="city" placeholder="city" required = "required">
+<input class="zipCode" type="text" name="zipcode" placeholder="zip code" required = "required">
+<input class="province" type="text" name="province" placeholder="province" required = "required">
+<input class="country" type="text" name="email" placeholder="email" required = "required">
+<input class="employeePicture" type="file" name="picture"  required = "required">
+<input class="employee-submit" name="submit" type="submit" value="Add employee">
 </form>
 </div>
 
@@ -123,5 +144,5 @@ Cole Colombia
 </div>
 
   </body>
-  <script src="../javaScript/index.js" type="text/javascript"></script>
+  <script type="text/javascript" src="../javaScript/index.js"></script>
 </html>
