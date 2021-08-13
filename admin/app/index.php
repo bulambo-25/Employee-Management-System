@@ -17,7 +17,7 @@
 <div class="siteNav">
 
 <div class="ProfilePicture">
-  <img class="picture" src="../images/person_black_24dp.svg" alt="">
+  <img class="picture" src="../images/Mortal_Kombat_mobile.jpg" alt="">
 </div>
 
 <div class="name">
@@ -70,12 +70,12 @@ Cole Colombia
 
 <div class="table">
 
-  <table>
+  <table id="records">
   <tr>
     <th>Name</th>
     <th>Surname</th>
+    <th>Employee id</th>
     <th>Department</th>
-    <th>Employee Id</th>
   </tr>
 </table>
 
@@ -113,7 +113,7 @@ Cole Colombia
 
 <div class="employee-details">
 <h2 class="addEmployeeHeading">Add Employee</h2>
-<form class="form-fill" action="userRegistration.php" enctype="multipart/form-data" method="post">
+<form class="form-fill" id="form-emp" action="userRegistration.php" enctype="multipart/form-data" method="post">
   <label class="label1" for="select">select department:</label><label class="label2" for="priviledge">select privilege:</label><br>
   <select class="selectDepartment" id="selectedDepartment" name="select"></select>
   <select class="userPriviledge" id="priviledge" name="priviledge">
@@ -133,7 +133,7 @@ Cole Colombia
 <input class="province" type="text" name="province" placeholder="province" required = "required">
 <input class="country" type="text" name="email" placeholder="email" required = "required">
 <input class="employeePicture" type="file" name="picture"  required = "required">
-<input class="employee-submit" name="submit" type="submit" value="Add employee">
+<input class="employee-submit" id="submitEmployee" name="submit" type="button" value="Add employee">
 </form>
 </div>
 

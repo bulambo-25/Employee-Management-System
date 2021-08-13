@@ -4,19 +4,14 @@
 
  require_once 'admin.php';
  require_once 'database.php';
- require_once 'userRegistration.php';
  require_once 'crud.php';
 
  $crud = new Crud();
- $crud->createTable("Employee","
- username VARCHAR(50) NOT NULL,
- surname VARCHAR(50) NOT NULL,
+ $crud->createTable("employee","
+ username VARCHAR(20) NOT NULL,
+ surname VARCHAR(20) NOT NULL,
  identity CHAR(13) NOT NULL UNIQUE,
- department VARCHAR(50) NOT NULL,
- salary VARCHAR(50),
- taxNumber VARCHAR(10),
- picture VARCHAR(13),
- password VARCHAR(13),
+ department VARCHAR(20) NOT NULL,
  PRIMARY KEY(identity)");
 
  $departments = $crud->fetchTables();
@@ -32,5 +27,6 @@
 $user->CreateSession();
 $user->authenticate();
 */
+
 
  ?>

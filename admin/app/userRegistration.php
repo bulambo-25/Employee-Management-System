@@ -4,7 +4,7 @@ require_once 'crud.php';
 
 class Employee{
 
-private $username;
+private $userName;
 private $surname;
 private $identity;
 private $department;
@@ -12,7 +12,6 @@ private $salary;
 private $taxNumber;
 private $streetName;
 private $zipCode;
-private $country;
 private $province;
 private $city;
 private $email;
@@ -40,7 +39,7 @@ private $picture;
   }//end of constructor
 
   public function getUsername(){
-    return $this->username;
+    return $this->userName;
   }//end of getUserName method
 
   public function getSurname(){
@@ -75,10 +74,6 @@ private $picture;
     return $this->zipCode;
   }
 
-  public function getCountry(){
-    return $this->country;
-  }
-
   public function getCity(){
     return $this->city;
   }
@@ -109,12 +104,10 @@ public function getPassword(){
  return $this->generatePassword();
 }
 
-public function addEmployee(){
-  $insert = new Crud();
+public function addEmployee($obj){
+  $add = new Crud();
   $password = $this->generatePassword();
-  $insert->createEmployeeDetails( $this->department,$this->userName, $this->surname,
-  $this->identity,$this->department, $this->salary , $this->taxNumber,
-  $this->picture, $password);
+  $add->createEmployeeDetails($this->department, $obj);
 }
 
 }//end of user class
@@ -123,26 +116,40 @@ public function addEmployee(){
 
 <?php
 
-if (isset($_POST['submit'])){
-
-    $name       = $_POST['name'];
-    $surname    = $_POST['surname'];
-    $identity   = $_POST['identity'];
-    $department = $_POST['select'];
-    $taxNumber  = $_POST['taxNumber'];
-    $salary     = $_POST['salary'];
-    $phone      = $_POST['phone'];
-    $street     = $_POST['street'];
-    $city       = $_POST['city'];
-    $zipCode    = $_POST['zipcode'];
-    $province   = $_POST['province'];
-    $email      = $_POST['email'];
-    $privilege  = $_POST['priviledge'];
-    $picture    = $_FILES['picture']['name'];
-
-    $registration = new Employee($name, $surname, $identity, $department, $salary,
-    $taxNumber, $street, $zipCode, $province, $city, $email, $phone, $privilege, $picture);
-    $registration->addEmployee();
+function is_ajax_request() {
+  return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
 }
 
+function addEmployeeAjax(){
+    if(is_ajax_request() && isset($_POST['name'])) {
+      $name       = $_POST['name'];
+      $surname    = $_POST['surname'];
+      $identity   = $_POST['identity'];
+      $department = $_POST['select'];
+      $taxNumber  = $_POST['taxNumber'];
+      $salary     = $_POST['salary'];
+      $phone      = $_POST['phone'];
+      $street     = $_POST['street'];
+      $city       = $_POST['city'];
+      $zipCode    = $_POST['zipcode'];
+      $province   = $_POST['province'];
+      $email      = $_POST['email'];
+      $privilege  = $_POST['priviledge'];
+      $picture    = $_FILES['picture']['name'];
+
+      $registration = new Employee($name, $surname, $identity, $department, $salary,
+      $taxNumber, $street, $zipCode, $province, $city, $email, $phone, $privilege, $picture);
+      $obj = $registration;
+      $registration->addEmployee($obj);
+    } else if(is_ajax_request()){
+      $crud = new Crud();
+      echo $crud->retrieveEmployeeDetails();
+    }
+    else{
+      exit;
+    }
+  }
+
+  addEmployeeAjax();
  ?>

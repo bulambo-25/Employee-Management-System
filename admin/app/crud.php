@@ -13,44 +13,46 @@ public function __construct()
   $this->database = parent::getConnection();
 }
 
-public function createEmployeeDetails($table, $username, $surname, $identity,
-  $department, $salary, $taxNumber, $picture, $password){
+public function createEmployeeDetails($table, $obj){
+  $employee   = $obj;
   $connection = $this->database;
+  $username   = $employee->getUserName();
+  $surname    = $employee->getSurname();
+  $identity   = $employee->getIdentity();
+  $department = $employee->getDepartment();
+
+
   $query = $connection->prepare("INSERT INTO $table(username, surname, identity,
-  department, salary, taxNumber, picture, password) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
-  $query->bind_param("ssssssss", $username, $surname, $identity,$department, $salary,
-  $taxNumber, $picture, $password);
+  department) VALUES(?, ?, ?, ?)");
+  $query->bind_param("ssss", $username, $surname, $identity, $department);
   $query->execute();
   $query->close();
 }
 
-private function createEmployeeContactDetails($table){
-  $connection = $this->database;
-  $query = $connection->prepare("INSERT INTO $table(username, street, postalCode, city,province,
-  country, phone, email) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
-  $query->bind_param("ssssssss", $street, $postCode, $city, $province, $country, $phone);
-  $query->execute();
-  $query->close();
-}
+/*public function retrieveContact(){
+  $salary     = $employee->getSalary();
+  $taxNumber  = $employee->getTaxNumber();
+  $picture    = $employee->getPicture();
+  $passWord   = $employee->getPassword();
+  $streetName = $employee->getStreetName();
+  $zipCode    = $employee->getZipCode();
+  $city       = $employee->getCity();
+  $privilege  = $employee->getPrivilege();
+  $phone      = $employee->getPhone();
+  $email      = $employee->getEmail();
+}*/
 
 public function retrieveEmployeeDetails(){
-  $connection = $this->database;
-  $check = $connection->prepare("SELECT identity FROM EmpoyeeDetails WHERE identity=?");
-  $check->bind_param("s", $identity);
-  $check->execute();
-  $result = $check->get_result();
-  $check->close();
-  return $result;
-}
+  $rows = array();
+  $check = "SELECT * FROM employee";
+  $result = $this->dbQuery($check);
 
-public function retrieveContactDetails(){
- $connection = $this->database;
- $check = $connection->prepare("SELECT phone FROM contactDetails WHERE phone=?");
- $check->bind_param("s", $phone);
- $check->execute();
- $result = $check->get_result();
- $check->close();
- return $result;
+  while($details = mysqli_fetch_assoc($result)){
+  foreach ($details as $key) {
+  $rows[]  = $key;
+   }
+  }
+  return json_encode($rows, JSON_FORCE_OBJECT);
 }
 
 public function dbQuery($query){
