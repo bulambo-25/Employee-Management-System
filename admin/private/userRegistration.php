@@ -122,7 +122,7 @@ function is_ajax_request() {
 }
 
 function addEmployeeAjax(){
-    if(is_ajax_request() && isset($_POST['name'])) {
+    if(is_ajax_request()) {
       $name       = $_POST['name'];
       $surname    = $_POST['surname'];
       $identity   = $_POST['identity'];
@@ -142,12 +142,9 @@ function addEmployeeAjax(){
       $taxNumber, $street, $zipCode, $province, $city, $email, $phone, $privilege, $picture);
       $obj = $registration;
       $registration->addEmployee($obj);
-    } else if(is_ajax_request()){
-      $crud = new Crud();
-      echo $crud->retrieveEmployeeDetails();
     }
     else{
-      exit;
+      return;
     }
   }
 

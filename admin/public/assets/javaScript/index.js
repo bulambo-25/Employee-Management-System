@@ -1,32 +1,23 @@
 
-//add department
-const popupWindow    = document.querySelector('#popUpWindow');
-const addDepartment  = document.querySelector('#addDep');
+$(document).ready(function(){
 
-const closeButton    = document.getElementsByClassName('closeButton')[0];
+$("#addDep").click(()=>{
+  $("#popUpWindow").css("display", "block")
+})
 
-addDepartment.addEventListener('click', ()=>{
-  popupWindow.style.display = "block";
-});
+$(".closeButton").click(()=>{
+  $("#popUpWindow").css("display", "none")
+})
 
-closeButton.addEventListener('click', ()=>{
-  popupWindow.style.display = "none";
-});
+$("#add-Employees").click(()=>{
+  $("#employee-popup").css("display", "block")
+})
 
+$(".closePopup").click(()=>{
+  $("#employee-popup").css("display", "none")
+})
 
-//Add employee
-const employeePopup  = document.querySelector('#employee-popup');
-const addEmployee    = document.querySelector('#add-Employees');
-
-const closePopup     = document.getElementsByClassName('closePopup')[0];
-
-addEmployee.addEventListener('click', ()=>{
-  employeePopup.style.display = "block";
-});
-
-closePopup.addEventListener('click', ()=>{
-  employeePopup.style.display = "none";
-});
+})
 
 //fetch table names
 selectDepartment = document.querySelector("#selectedDepartment");

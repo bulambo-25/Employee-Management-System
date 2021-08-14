@@ -1,12 +1,12 @@
 <!--Author: Kholani Benelzane 218257465-->
-<?php include "functions.php"; ?>
-
+<?php require_once("../private/initialize.php"); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="assets/style/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   </head>
@@ -17,7 +17,7 @@
 <div class="siteNav">
 
 <div class="ProfilePicture">
-  <img class="picture" src="../images/Mortal_Kombat_mobile.jpg" alt="">
+  <img class="picture" src="assets/images/Mortal_Kombat_mobile.jpg" alt="">
 </div>
 
 <div class="name">
@@ -26,16 +26,16 @@ Cole Colombia
 
 <div class="adminTasks">
 
-<div id="addDep" class="department" style="font-family:"><img src="../images/add_white_24dp.svg">
+<div id="addDep" class="department" style="font-family:"><img src="assets/images/add_white_24dp.svg">
 <a>Add department</a></div>
 
-<div id="add-Employees" class="employee"><img src="../images/person_add_white_24dp.svg">
+<div id="add-Employees" class="employee"><img src="assets/images/person_add_white_24dp.svg">
   <a>Add employee</a></div>
 
-  <div class="departments"><img src="../images/maps_home_work_white_24dp.svg">
+  <div class="departments"><img src="assets/images/maps_home_work_white_24dp.svg">
   <a>Departments</a></div>
 
-  <div class="logout"><img type="submit" src="../images/logout_white_24dp.svg">
+  <div class="logout"><img type="submit" src="assets/images/logout_white_24dp.svg">
   <a>Logout</a></div>
 
 </div>
@@ -44,20 +44,18 @@ Cole Colombia
 
 <div class="adminHead">
 
-
 <div class="menu">
 
   <div id="search" class="searchUser">
-  <img src="../images/search_white_24dp.svg">
+  <img src="assets/images/search_white_24dp.svg">
   </div>
-
 
   <div class="heading">
   Admin
   </div>
 
   <div id="notification" class="notify">
-  <img src="../images/notifications_white_24dp.svg">
+  <img src="assets/images/notifications_white_24dp.svg">
 
   <div class="notificationCounter">
   5
@@ -92,7 +90,7 @@ Cole Colombia
 
 <div class="popupForm">
   <h2>Add Department</h2>
-<form class="" action="index.html" method="post">
+<form class=""  method="post">
 <input class="depName" type="text" name="" placeholder="Department name" required = "required" >
 <input class="subButton" type="submit" value="Create department">
 </form>
@@ -109,11 +107,9 @@ Cole Colombia
 </div>
 <div class="emplyee-form">
 
-
-
 <div class="employee-details">
 <h2 class="addEmployeeHeading">Add Employee</h2>
-<form class="form-fill" id="form-emp" action="userRegistration.php" enctype="multipart/form-data" method="post">
+<form class="form-fill" id="form-emp" action="/userRegistration.php" enctype="multipart/form-data" method="post">
   <label class="label1" for="select">select department:</label><label class="label2" for="priviledge">select privilege:</label><br>
   <select class="selectDepartment" id="selectedDepartment" name="select"></select>
   <select class="userPriviledge" id="priviledge" name="priviledge">
@@ -144,5 +140,6 @@ Cole Colombia
 </div>
 
   </body>
-  <script type="text/javascript" src="../javaScript/index.js"></script>
+  <script type="text/javascript" src="assets/javaScript/jquery-3.6.0.js"></script>
+  <script type="text/javascript" src="assets/javaScript/index.js"></script>
 </html>

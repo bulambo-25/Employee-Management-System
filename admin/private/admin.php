@@ -10,10 +10,15 @@ class Admin{
 private $userName;
 private $password;
 private $picture;
-/*public function __construct($userName, $password)
+private $loggedIn;
+
+/*public function __construct($userName, $password, $picture, $loggedIn)
 {
   $this->userName   = $userName;
   $this->password   = $password;
+  $this->picture    = $picture;
+  $this->loggedIn   = $loggedIn;
+  setLoggedIn($loggedIn);
 }//end of __construct
 */
 
@@ -24,6 +29,18 @@ public function GetUserName(){
 public function GetPassword(){
   return $this->password;
 }//end of GetPassword method
+
+public function GetPicture(){
+  return $this->picture;
+}//end of GetPicture method
+
+public function GetLoggedIn(){
+  return $this->password;
+}//end of GetLoggedIn method
+
+public function setLoggedIn($loggedIn){
+  $this->loggedIn = $loggedIn;
+}
 
 public function CreateSession(){
   session_start();
