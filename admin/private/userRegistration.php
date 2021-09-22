@@ -18,9 +18,12 @@ private $email;
 private $phone;
 private $privilege;
 private $picture;
+private $gender;
+private $occupation;
 
   public function __construct($userName, $surname, $identity, $department, $salary,
-  $taxNumber, $streetName, $zipCode, $province, $city, $email, $phone, $privilege,$picture)
+  $taxNumber, $streetName, $zipCode, $province, $city, $email, $phone, $privilege,$picture,
+  $gender, $occupation)
   {
     $this->userName    = $userName;
     $this->surname     = $surname;
@@ -36,6 +39,8 @@ private $picture;
     $this->phone       = $phone;
     $this->privilege   = $privilege;
     $this->picture     = $picture;
+    $this->gender      = $gender;
+    $this->occupation  = $occupation;
   }//end of constructor
 
   public function getUsername(){
@@ -94,7 +99,7 @@ private $picture;
     return $this->picture;
  }
 
- private function generatePassword(){
+ private function generatePassword($passWord){
  $str = "Emp";
  $passWord = $str.$this->identity;
  return $passWord;
@@ -104,10 +109,12 @@ public function getPassword(){
  return $this->generatePassword();
 }
 
-public function addEmployee($obj){
-  $add = new Crud();
-  $password = $this->generatePassword();
-  $add->createEmployeeDetails($this->department, $obj);
+public function getGender(){
+  return $this->gender;
+}
+
+public function getOccupation(){
+  return $this->occupation;
 }
 
 }//end of user class
@@ -121,7 +128,16 @@ function is_ajax_request() {
     $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
 }
 
-function addEmployeeAjax(){
+function is_ajax_request2() {
+  return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WITH'] == 'ajaxRequest';
+}
+
+if(is_ajax_request2()){
+  $department = $_POST['myDepartment'];
+  $crud->insertIntoDepartments($department);
+}
+
     if(is_ajax_request()) {
       $name       = $_POST['name'];
       $surname    = $_POST['surname'];
@@ -135,18 +151,22 @@ function addEmployeeAjax(){
       $zipCode    = $_POST['zipcode'];
       $province   = $_POST['province'];
       $email      = $_POST['email'];
+      $gender     = $_POST['gender'];
+      $occupation = $_POST['occupation'];
       $privilege  = $_POST['priviledge'];
       $picture    = $_FILES['picture']['name'];
 
       $registration = new Employee($name, $surname, $identity, $department, $salary,
-      $taxNumber, $street, $zipCode, $province, $city, $email, $phone, $privilege, $picture);
+      $taxNumber, $street, $zipCode, $province, $city, $email, $phone, $privilege, $picture,
+      $gender, $occupation);
       $obj = $registration;
-      $registration->addEmployee($obj);
+
+      $crud = new Crud();
+      $crud->insertIntoWorker($obj);
+
     }
     else{
       return;
     }
-  }
 
-  addEmployeeAjax();
  ?>

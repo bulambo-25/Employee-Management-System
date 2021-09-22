@@ -24,7 +24,7 @@ body{
   font-size: 12pt;
 }
 
-.login{
+.register{
   margin:auto;
   margin-top: 5px;
   height: 5vh;
@@ -42,12 +42,12 @@ body{
   color: #A62C2A;
 }
 
-.register a{
-  color: white;
-  font-size: 12pt;
+.in{
+  margin-top: 17vh;
+  text-align: center;
 }
 
-.register{
-  text-align: center;
-  margin-top: 20vh;
+.in a{
+  color:silver;
+  font-size: 13pt;
 }

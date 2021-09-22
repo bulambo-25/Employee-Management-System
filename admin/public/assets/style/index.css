@@ -1,15 +1,14 @@
-/*Author Benelzane Kholani 218257465*/
 
 body{
   width: 100%;
   margin:0 auto;
-  background-color: #222222;
+  background-color: #E7E7E7;
 }
 
 .siteNav{
   width: 15%;
-  background-color: #111111;
-  color: #A0A1A4;
+  background-color: #F5F5F5;
+  color: black;
   height: 100vh;
   text-align: center;
   position: fixed;
@@ -29,14 +28,49 @@ body{
 }
 
 .adminHead{
-margin-left: 15.1%;
-color:#A0A1A4;
+margin-left: 15.2%;
+color:black;
 font-weight: bold;
+}
+
+.records{
+  width: 70%;
+  margin-left:20.8%;
+}
+
+.records div{
+  display: inline-block;
+  margin: 0.5%;
+  width: 22%;
+  height: 4vh;
+  padding-top: 10px;
+  color: #111111;
+}
+
+.employee_List{
+  width: 70%;
+  margin-left: 20%;
+}
+
+.employee_List div{
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 7.5vh;
+  margin:0.8%;
+}
+
+.employee_List div div{
+ display: inline-block;
+ margin: 0.5%;
+ width: 22%;
+ height: 4vh;
+ padding-top: 10px;
+ color: black;
 }
 
 .menu{
   width: 100%;
-  background-color: #111111;
+  background-color: #F5F5F5;
   font-size: 14pt;
   height: 45px;
   text-align: center;
@@ -44,14 +78,38 @@ font-weight: bold;
   padding-top: 1%;
 }
 
+.heading{
+  color: black;
+}
+
 .searchUser, .heading, .notify{
   display: inline-block;
 }
 
 .searchUser{
+  width: 35%;
   float: left;
   cursor: pointer;
   margin-left:2%;
+  overflow: hidden;
+  background-color: #E7E7E7;
+}
+
+.search_user{
+  width: 91%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.search_user:focus{
+  outline: none;
+}
+
+.submit_user{
+  vertical-align: middle;
 }
 
 .notify{
@@ -84,7 +142,7 @@ font-weight: bold;
 }
 
 .secondHeading{
-  margin-left: 1%;
+  margin-left: 17%;
   margin-top: 0.5%;
   font-size: 14pt;
   font-weight: normal;
@@ -93,19 +151,9 @@ font-weight: bold;
 
 .table{
   margin-top: 3.4%;
-  width: 70%;
+  width: 80%;
   margin-left: 0.3%;
-}
-
-.table table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.table table th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  text-align: center;
 }
 
 .adminTasks{
@@ -115,20 +163,23 @@ font-weight: bold;
 .department, .employee, .departments, .logout{
   height: 40px;
   margin-top: 0.5%;
-  background-color: #111111;
   cursor: pointer;
 }
 
  .department:hover, .employee:hover, .departments:hover, .logout:hover{
-  border-left: 3px solid #63CCC8;
-  color: silver;
-  background-color: #222222;
+  border-left: 3px solid #4D4DFF;
+  color: black;
+  background-color: #E7E7E7;
 }
 
 .logout{
-  background:#63CCC8;
-  color: #111111;
+  background-color:#4D4DFF;
   font-size: 14pt;
+}
+
+.logout a{
+  text-decoration: none;
+  color: black;
 }
 
 .adminTasks img{
@@ -143,20 +194,21 @@ font-weight: bold;
 /*Create department Popup window*/
 
 .popup{
-  background-color: rgb(17,17,17);
+  background-color: #F5F5F5;
   overflow: auto;
-  margin:5% 28%;
+  margin:10% 28%;
   width: 50%;
   height: 250px;
   position: fixed;
-  z-index: 1;
+  top:0;
+  z-index: 2;
   display: none;
 }
 
 .closeButton{
   font-size: 30pt;
   float: right;
-  color: #A0A1A4;
+  color: black;
   margin-right: 3%;
 }
 
@@ -170,7 +222,7 @@ font-weight: bold;
   width: 75%;
   margin-top: 75px;
   text-align: center;
-  color: silver;
+  color: black;
 }
 
 .depName, .subButton{
@@ -182,9 +234,13 @@ font-weight: bold;
   width: 95%;
   height: 32px;
   border: none;
-  background-color: #222222;
+  background-color: #E7E7E7;
   font-size: 12pt;
-  color: #A0A1A4;
+  color: black;
+}
+
+.depName:focus{
+  outline: none;
 }
 
 .subButton{
@@ -192,34 +248,34 @@ font-weight: bold;
   height: 34px;
   margin-left: 23%;
   border: none;
-  background-color: #63CCC8;
+  background-color: #4D4DFF;
   font-size: 12pt;
   color: #black;
   cursor: pointer;
 }
 
 .subButton:hover{
-  background-color: #222222;
-  color: #A0A1A4;
+  background-color: #E7E7E7;
+  color: black;
 }
 
 /*Add employee*/
 .employee-window{
-  background-color: rgb(17,17,17);
+  background-color: #F5F5F5;
   overflow: auto;
   margin:5% 24%;
   width: 70%;
   height: 580px;
   position: fixed;
   top:0;
-  z-index: 1;
+  z-index: 2;
   display: none;
 }
 
 .closePopup{
   font-size: 30pt;
   float: right;
-  color: #A0A1A4;
+  color: black;
   margin-right: 3%;
 }
 
@@ -234,9 +290,9 @@ font-weight: bold;
   width: 38.5%;
   height: 32px;
   border: none;
-  background-color: #222222;
+  background-color: #E7E7E7;
   font-size: 12pt;
-  color: #A0A1A4;
+  color: black;
 }
 
 .selectDepartment:hover, .userPriviledge:hover{
@@ -244,12 +300,12 @@ font-weight: bold;
 }
 
 .addEmployeeHeading{
-  color: silver;
+  color: black;
 }
 
 .label1, .label2{
   display: inline-block;
-  color: silver;
+  color: black;
 }
 
 .label1{
@@ -269,9 +325,20 @@ font-weight: bold;
   width: 38%;
   height: 32px;
   border: none;
-  background-color: #222222;
+  background-color: #E7E7E7;
   font-size: 12pt;
-  color: #A0A1A4;
+  color: black;
+}
+
+.employee-gender, .employee-occupation{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
 }
 
 .employee-id, .employee-tax{
@@ -280,9 +347,9 @@ font-weight: bold;
   width: 38%;
   height: 32px;
   border: none;
-  background-color: #222222;
+  background-color: #E7E7E7;
   font-size: 12pt;
-  color: #A0A1A4;
+  color: black;
 }
 
 .employee-salary, .phone{
@@ -291,9 +358,9 @@ font-weight: bold;
   width: 38%;
   height: 32px;
   border: none;
-  background-color: #222222;
+  background-color: #E7E7E7;
   font-size: 12pt;
-  color: #A0A1A4;
+  color: black;
 }
 
 .streetAddress, .city{
@@ -302,9 +369,9 @@ font-weight: bold;
   width: 38%;
   height: 32px;
   border: none;
-  background-color: #222222;
+  background-color: #E7E7E7;
   font-size: 12pt;
-  color: #A0A1A4;
+  color: black;
 }
 
  .zipCode, .province{
@@ -313,9 +380,9 @@ font-weight: bold;
   width: 38%;
   height: 32px;
   border: none;
-  background-color: #222222;
+  background-color: #E7E7E7;
   font-size: 12pt;
-  color: #A0A1A4;
+  color: black;
 }
 
 .country, .employeePicture{
@@ -324,9 +391,9 @@ font-weight: bold;
  width: 38%;
  height: 32px;
  border: none;
- background-color: #222222;
+ background-color: #E7E7E7;
  font-size: 12pt;
- color: #A0A1A4;
+ color: black;
 }
 
 .employeePicture::-webkit-file-upload-button {
@@ -344,7 +411,7 @@ font-weight: bold;
 .employee-submit{
   width: 38%;
   height: 38px;
-  background-color: #63CCC8;
+  background-color: #4D4DFF;
   cursor: pointer;
   border: none;
   font-size: 12pt;
@@ -352,6 +419,6 @@ font-weight: bold;
 }
 
 .employee-submit:hover{
-  background-color: #222222;
-  color: #A0A1A4;
+  background-color: #E7E7E7;
+  color: black;
 }

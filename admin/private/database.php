@@ -1,36 +1,29 @@
- <?php
 
- class Database{
-   private static $instance = null;
-   private $userName = "root";
-   private $passWord = "";
-   private $database = "departments";
-   private $host = "localhost";
-   private $connection;
-   private $charset = 'utf8mb4';
+  <?php
 
-   private function __construct(){
-     $dsn = "mysql:host=$this->host;dbname=$this->database;charset=$this->charset";
-     try{
-     $this->connetion = new PDO($dsn, $this->userName, $this->passWord);
-   }
-   catch(PDOException $e){
-     throw new PDOException($e->getMessage(), (int)$e->getCode());
-   }
+require_once("passwords.php");
 
-   }
+  class Database{
 
-   public static function getInstance(){
-     if(!self::$instance){
-       self::$instance = new Database();
-     }
+    protected static $instance = null;
 
-     return self::$instance;
-   }
+    protected function __construct() {}
+    protected function __clone() {}
 
-   public function getConnection(){
-     return $this->connection;
-   }
- }
+    public static function instance()
+    {
+        if (self::$instance === null)
+        {
+            $opt  = array(
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES   => FALSE,
+            );
+            $dsn = 'mysql:host='.DBHOST.';dbname='.DB.';charset='.CHARSET;
+            self::$instance = new PDO($dsn, DBUSER, DBPASS, $opt);
+        }
+        return self::$instance;
+    }
 
-  ?>
+  }
+   ?>
