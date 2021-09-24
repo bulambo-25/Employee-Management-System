@@ -20,6 +20,7 @@ public function insertIntoWorker($obj){
   $identity       = $obj->getIdentity();
   $name           = $obj->getUserName();
   $surname        = $obj->getSurname();
+  $password       = $obj->getPassword();
   $tax            = $obj->getTaxNumber();
   $phone          = $obj->getPhone();
   $street         = $obj->getStreetName();
@@ -38,9 +39,9 @@ public function insertIntoWorker($obj){
 
    $this->connect->beginTransaction();
 
-  $sql = 'INSERT INTO worker( first_name, second_name, identity_num, gender, tax_num, picture) VALUES(?,?,?,?,?,?)';
+  $sql = 'INSERT INTO worker( first_name, second_name, identity_num, gender, tax_num, picture, password) VALUES(?,?,?,?,?,?,?)';
   $stmt = $this->connect->prepare($sql);
-  $stmt->execute([$name, $surname, $identity, $gender, $tax, $picture]);
+  $stmt->execute([$name, $surname, $identity, $gender, $tax, $picture, $password]);
 
   $sql = 'INSERT INTO address(employee_id, phone, street, city, zipCode, province, email)
   VALUES(?,?,?,?,?,?,?)';
@@ -60,6 +61,18 @@ public function insertIntoDepartments($department){
   $stmt->execute([$department]);
 }
 
+public function insert_leave_type($leave_type){
+  $sql = 'INSERT INTO leave_type( leave_types ) VALUES(?)';
+  $stmt = $this->connect->prepare($sql);
+  $stmt->execute([$leave_type]);
+}
+
+public function update_access($access_type, $employee_id){
+  $sql = 'UPDATE organization_data SET priviledge=? WHERE employee_id=?';
+  $stmt = $this->connect->prepare($sql);
+  $stmt->execute([$access_type, $employee_id]);
+}
+
 }
 
  ?>
@@ -77,7 +90,8 @@ $crud->createTables('CREATE TABLE IF NOT EXISTS worker(
   identity_num CHAR(13),
   gender VARCHAR(25),
   tax_num CHAR(10),
-  picture VARCHAR(250)
+  picture VARCHAR(250),
+  password VARCHAR(250)
 );');
 
 $crud->createTables('CREATE TABLE IF NOT EXISTS organization_data(
@@ -99,6 +113,22 @@ $crud->createTables('CREATE TABLE IF NOT EXISTS address(
   email VARCHAR(100),
   FOREIGN KEY(employee_id) REFERENCES worker(employee_id)
 );');
+
+$crud->createTables("CREATE TABLE IF NOT EXISTS emp_leave(leave_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+employee_id INT NOT NULL,
+leave_type VARCHAR(100),
+leave_date DATE,
+info VARCHAR(250),
+leave_status INT NOT NULL,
+FOREIGN KEY(employee_id) REFERENCES worker(employee_id));");
+
+$crud->createTables("CREATE TABLE IF NOT EXISTS occupation(occupation_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+department_id INT NOT NULL,
+occupation VARCHAR(200),
+FOREIGN KEY(department_id) REFERENCES department(department_id));");
+
+$crud->createTables("CREATE TABLE IF NOT EXISTS leave_type(leavetype_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+leave_types VARCHAR(250));");
 
 $crud->createTables('CREATE TABLE IF NOT EXISTS department(
   department_id INT AUTO_INCREMENT,
