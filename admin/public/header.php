@@ -1,6 +1,7 @@
 <?php
 require_once("../private/initialize.php");
-//startSession();
+startSession();
+authenticate();
  ?>
 
 <!DOCTYPE html>
@@ -32,11 +33,23 @@ Cole Colombia
 
 <div class="adminTasks">
 
-<div id="addDep" class="department" style="font-family:"><img src="assets/images/add_black_24dp.svg">
+<div class="department" style="font-family:"><img src="assets/images/add_black_24dp.svg">
 <a>Add department</a></div>
 
-<div id="add-Employees" class="employee"><img src="assets/images/person_add_black_24dp.svg">
+<div class="remove_department" style="font-family:"><img src="assets/images/remove_black_24dp.svg">
+<a>Remove department</a></div>
+
+<div class="add_leave_type" style="font-family:"><img src="assets/images/add_black_24dp.svg">
+<a>Add leave types</a></div>
+
+<div class="add_occupation" style="font-family:"><img src="assets/images/add_black_24dp.svg">
+<a>Add occupations</a></div>
+
+<div class="employee"><img src="assets/images/person_add_black_24dp.svg">
   <a>Add employee</a></div>
+
+  <div class="remove_employee"><img src="assets/images/person_remove_black_24dp.svg">
+    <a>Remove employee</a></div>
 
   <div class="departments"><img src="assets/images/corporate_fare_black_24dp.svg">
   <a>Departments</a></div>
@@ -84,7 +97,7 @@ Cole Colombia
 
 <div class="popupForm">
   <h2>Add Department</h2>
-<form class="" id="dep_form" action="../private/userRegistration.php" method="post">
+<form class="my_dep" id="dep_form" action="../private/userRegistration.php" method="post">
 <input class="depName" type="text" name="myDepartment" placeholder="Department name" required = "required" >
 <input class="subButton" type="button" value="Create department">
 </form>
@@ -93,6 +106,60 @@ Cole Colombia
 </div>
 
 </div>
+
+<!--Remove department popup-->
+<div class="delete_department">
+<span class="close_delete_dep">&times;</span>
+<div class="rev_header">
+  <h2>Remove Department</h2>
+<form class="" id="rev_form" action="../private/userRegistration.php" method="post">
+  <label for="selected_dep">Select Department</label>
+<select id="selected_dep" class="select_dep" name="">
+<?php loadDepartments(); ?>
+</select>
+<button class="confirm_before" type="button" name="button">Remove department</button>
+<input class="remove_button" type="button" value="Confirm deletion">
+</form>
+</div>
+</div>
+<!---->
+
+<!--Add leave type-->
+<div class="leave_popup">
+  <div>
+<span class="exit_leave">&times;</span>
+</div>
+<div class="content">
+
+<div class="leave_form_fill">
+  <h2>Add leave type</h2>
+<form class="" id="leave_form" action="../private/userRegistration.php" method="post">
+<input class="leave_form_name" type="text" name="leave_type" placeholder="Leave type" required = "required" >
+<input class="leave_submit" type="button" value="Add leave type">
+</form>
+</div>
+
+</div>
+
+</div>
+<!---->
+
+<!--Add occupation popup-->
+<div class="occupation_popup">
+<span class="close_occupation">&times;</span>
+<div class="occupation_content">
+  <h2>Remove Department</h2>
+<form class="" id="rev_form" action="../private/userRegistration.php" method="post">
+  <label for="select_occ_dep">Select Department</label>
+<select id="select_occ_dep" class="select_occu_dep" name="">
+<?php loadDepartments(); ?>
+</select>
+<button class="confirm_before_occu" type="button" name="button">Add occupation</button>
+<input class="create_occupation" type="button" value="Confirm occupation">
+</form>
+</div>
+</div>
+<!---->
 
 <!--Add employee popup form-->
 <div id="employee-popup" class="employee-window">
@@ -109,9 +176,9 @@ Cole Colombia
     <?php loadDepartments(); ?>
   </select>
   <select class="userPriviledge" id="priviledge" name="priviledge">
-  <option value="low">low</option>
-  <option value="medium">medium</option>
-  <option value="high">high</option>
+  <option value="low">Low</option>
+  <option value="medium">Medium</option>
+  <option value="high">High</option>
   </select>
 <input class="employee-name" type="text" name="name" placeholder="name" required = "required">
 <input class="employee-sur" type="text" name="surname" placeholder="surname" required = "required">

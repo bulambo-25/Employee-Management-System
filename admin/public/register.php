@@ -1,11 +1,11 @@
-<?php require_once("../private/initialize.php"); ?>
+<?php require_once("../private/initialize.php");
+startSession();
+?>
 
 <?php
-$pdo = Database::instance();
 $error = $user = $pass = "";
-$admin = new Admin();
 
-if (isset($_SESSION['user'])) $admin->sessionDestroy();
+if (isset($_SESSION['admin'])) destroySession();
 if(isset($_POST['userName']))
 {
   $user = $_POST['userName'];
@@ -17,17 +17,13 @@ if(isset($_POST['userName']))
   }
   else
   {
-    $stmt = $pdo->prepare("SELECT count(*) FROM admin WHERE name = ?");
-    $stmt->execute([$user]);
-    $count = $stmt->fetchColumn();
+    $count = count_admins($user);
 
     if($count > 0){
       $error = "That username already exists";
     }
     else{
-      $sql = 'INSERT INTO admin( name, password ) VALUES(?,?)';
-      $stmt = $pdo->prepare($sql);
-      $stmt->execute([$user, $pass]);
+      insert_admin($user, $pass);
       $error = "Account created please loggin";
     }
   }
@@ -52,7 +48,7 @@ if(isset($_POST['userName']))
           <h2 style="font-family: 'Open Sans', sans-serif;
           font-family: 'Roboto Condensed', sans-serif;">Register</h2>
         <form action="register.php" method="post">
-          <input class="adminName" type="text" name="userName" placeholder="username">
+          <input class="adminName" type="email" name="userName" placeholder="email">
           <input class="adminPass" type="password" name="password" placeholder="password">
           <input type="submit" value="Register" class="register">
         </form>

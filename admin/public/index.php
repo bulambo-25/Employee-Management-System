@@ -7,7 +7,7 @@ require_once("header.php");
  <div class="table">
 
    <div class="records">
-
+     <div></div>
      <div>Name</div>
      <div>Surname</div>
      <div>Employee id</div>

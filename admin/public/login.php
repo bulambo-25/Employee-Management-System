@@ -1,4 +1,8 @@
-<?php require_once("../private/initialize.php"); ?>
+<?php require_once("../private/initialize.php");
+startSession();
+authenticateSign();
+ ?>
+
 <?php
 
 $pdo = Database::instance();
@@ -22,8 +26,8 @@ if(isset($_POST['adminName']))
     if($count == 0){
       $error = "Username or password invalid";
     }else{
-      $_SESSION['user'] = $user;
-      $_SESSION['pass'] = $pass;
+      $_SESSION['admin'] = $user;
+      $_SESSION['admin_pass'] = $pass;
       header("Location: index.php");
     }
   }
