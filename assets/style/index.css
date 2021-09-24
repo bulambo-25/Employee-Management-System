@@ -1,0 +1,840 @@
+
+body{
+  width: 100%;
+  margin:0 auto;
+  background-color: #E7E7E7;
+}
+
+.siteNav{
+  width: 15%;
+  background-color: #F5F5F5;
+  color: black;
+  height: 100vh;
+  text-align: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+}
+
+.ProfilePicture img{
+object-fit: contain;
+}
+
+.ProfilePicture{
+  margin-top: 1.5%;
+  background-color: white;
+  width: 125px;
+  height: 125px;
+  margin: auto;
+  margin-top: 5%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.adminHead{
+margin-left: 15.2%;
+color:black;
+font-weight: bold;
+}
+
+.records{
+  width: 85%;
+  margin-left:20.8%;
+}
+
+.records div{
+  display: inline-block;
+  margin: 0.5%;
+  width: 18%;
+  height: 4vh;
+  padding-top: 10px;
+  color: #111111;
+}
+
+.employee_List{
+  width: 85%;
+  margin-left: 20%;
+}
+
+.employee_List div{
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 12vh;
+  margin:0.8%;
+  overflow: hidden;
+}
+
+.employee_List div div{
+ display: inline-block;
+ margin: 0.5%;
+ width: 18%;
+ height: 10vh;
+ padding-top: 15px;
+ color: black;
+}
+
+.employee_List div div img{
+  object-fit: contain;
+  width: 31%;
+  border-radius: 50%;
+  border: 2px solid #4D4DFF;
+  vertical-align: baseline;
+}
+
+.menu{
+  width: 100%;
+  background-color: #F5F5F5;
+  font-size: 14pt;
+  height: 45px;
+  text-align: center;
+  color:#A0A1A4;
+  padding-top: 1%;
+}
+
+.heading{
+  color: black;
+}
+
+.searchUser, .heading, .notify{
+  display: inline-block;
+}
+
+.searchUser{
+  width: 35%;
+  float: left;
+  cursor: pointer;
+  margin-left:2%;
+  overflow: hidden;
+  background-color: #E7E7E7;
+}
+
+.search_user{
+  width: 91%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.search_user:focus{
+  outline: none;
+}
+
+.submit_user{
+  vertical-align: middle;
+}
+
+.notify{
+  float: right;
+  margin-right: 3%;
+  border: 1px solid black;
+}
+
+.notificationCounter{
+  width: 15px;
+  border: 1px solid white;
+  height: 15px;
+  border-radius: 35px;
+  background-color: #63CCC8;
+  z-index: 2;
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-size: 11pt;
+  display: none;
+}
+
+.notify img{
+  z-index: 1;
+  position: absolute;
+}
+
+.notify:hover{
+  cursor: pointer;
+}
+
+.secondHeading{
+  margin-left: 17%;
+  margin-top: 0.5%;
+  font-size: 14pt;
+  font-weight: normal;
+}
+
+
+.table{
+  margin-top: 3.4%;
+  width: 80%;
+  margin-left: 0.3%;
+  text-align: center;
+}
+
+.adminTasks{
+  margin-top: 20%;
+  overflow: hidden;
+}
+
+.leave_request, .download_info, .department, .remove_department, .remove_employee, .departments, .add_leave_type, .add_occupation, .employee,.logout{
+  height: 40px;
+  margin-top: 0.5%;
+  cursor: pointer;
+}
+
+ .leave_request:hover, .download_info:hover, .department:hover, .remove_department:hover, .employee:hover, .remove_employee:hover, .departments:hover, .add_leave_type:hover, .add_occupation:hover, .logout:hover{
+  border-left: 3px solid #4D4DFF;
+  color: black;
+  background-color: #E7E7E7;
+}
+
+.logout{
+  background-color:#4D4DFF;
+  font-size: 14pt;
+}
+
+.logout a{
+  text-decoration: none;
+  color: black;
+}
+
+.adminTasks img{
+  float: left;
+}
+
+.adminTasks a{
+  float: left;
+  margin-left: 5%;
+  text-decoration: none;
+  color: black;
+}
+
+/*Create department Popup window*/
+
+.popup{
+  background-color: #F5F5F5;
+  overflow: auto;
+  margin:10% 28%;
+  width: 50%;
+  height: 250px;
+  position: fixed;
+  top:0;
+  z-index: 2;
+  display: none;
+}
+
+.closeButton{
+  font-size: 30pt;
+  float: right;
+  color: black;
+  margin-right: 3%;
+}
+
+.closeButton:hover{
+  cursor: pointer;
+  color:silver;
+}
+
+.popupForm{
+  margin: auto;
+  width: 75%;
+  margin-top: 75px;
+  text-align: center;
+  color: black;
+}
+
+.depName, .subButton{
+  display: block;
+  margin:2.5%
+}
+
+.depName{
+  width: 95%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.depName:focus{
+  outline: none;
+}
+
+.subButton{
+  width: 55%;
+  height: 34px;
+  margin: auto;
+  border: none;
+  background-color: #4D4DFF;
+  font-size: 12pt;
+  color: #black;
+  cursor: pointer;
+}
+
+.subButton:hover{
+  background-color: #E7E7E7;
+  color: black;
+}
+
+/*Remove department Popup window*/
+
+.delete_department{
+  background-color: #F5F5F5;
+  overflow: auto;
+  margin:10% 28%;
+  width: 50%;
+  height: 45%;
+  position: fixed;
+  top:0;
+  z-index: 2;
+  display: none;
+}
+
+.close_delete_dep{
+  font-size: 30pt;
+  float: right;
+  color: black;
+  margin-right: 3%;
+}
+
+.close_delete_dep:hover{
+  cursor: pointer;
+  color:silver;
+}
+
+.rev_header{
+  margin: auto;
+  width: 75%;
+  margin-top: 75px;
+  text-align: center;
+  color: black;
+}
+
+.select_dep, .remove_button{
+  display: block;
+  margin:2.5%
+}
+
+.select_dep{
+  width: 95%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.select_dep:focus{
+  outline: none;
+}
+
+.select_dep:hover{
+  cursor: pointer;
+}
+
+.confirm_before{
+  width: 55%;
+  height: 34px;
+  margin: auto;
+  border: none;
+  background-color: #4D4DFF;
+  font-size: 12pt;
+  color: #black;
+  cursor: pointer;
+}
+
+.confirm_before:hover{
+  background-color: #E7E7E7;
+  color: black;
+}
+
+.remove_button{
+  width: 55%;
+  height: 34px;
+  margin: auto;
+  border: none;
+  background-color: #4D4DFF;
+  font-size: 12pt;
+  color: #black;
+  cursor: pointer;
+  display: none;
+}
+
+.remove_button:hover{
+  background-color: #E7E7E7;
+  color: black;
+}
+
+/*Add leave type*/
+.leave_popup{
+  background-color: #F5F5F5;
+  overflow: auto;
+  margin:10% 28%;
+  width: 50%;
+  height: 250px;
+  position: fixed;
+  top:0;
+  z-index: 2;
+  display: none;
+}
+
+.exit_leave{
+  font-size: 30pt;
+  float: right;
+  color: black;
+  margin-right: 3%;
+}
+
+.exit_leave:hover{
+  cursor: pointer;
+  color:silver;
+}
+
+.leave_form_fill{
+  margin: auto;
+  width: 75%;
+  margin-top: 75px;
+  text-align: center;
+  color: black;
+}
+
+.leave_form_name, .leave_submit{
+  display: block;
+  margin:2.5%
+}
+
+.leave_form_name{
+  width: 95%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.leave_form_name:focus{
+  outline: none;
+}
+
+.leave_submit{
+  width: 55%;
+  height: 34px;
+  margin: auto;
+  border: none;
+  background-color: #4D4DFF;
+  font-size: 12pt;
+  color: #black;
+  cursor: pointer;
+}
+
+.leave_submit:hover{
+  background-color: #E7E7E7;
+  color: black;
+}
+
+/*Add occupation*/
+.occupation_popup{
+  background-color: #F5F5F5;
+  overflow: auto;
+  margin:10% 28%;
+  width: 50%;
+  height: 45%;
+  position: fixed;
+  top:0;
+  z-index: 2;
+  display: none;
+}
+
+.close_occupation{
+  font-size: 30pt;
+  float: right;
+  color: black;
+  margin-right: 3%;
+}
+
+.close_occupation:hover{
+  cursor: pointer;
+  color:silver;
+}
+
+.occupation_content{
+  margin: auto;
+  width: 75%;
+  margin-top: 75px;
+  text-align: center;
+  color: black;
+}
+
+.select_occu_dep, .create_occupation{
+  display: block;
+  margin:2.5%
+}
+
+.select_occu_dep{
+  width: 95%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.select_occu_dep:focus{
+  outline: none;
+}
+
+.select_occu_dep:hover{
+  cursor: pointer;
+}
+
+.confirm_before_occu{
+  width: 55%;
+  height: 34px;
+  margin: auto;
+  border: none;
+  background-color: #4D4DFF;
+  font-size: 12pt;
+  color: #black;
+  cursor: pointer;
+}
+
+.confirm_before_occu:hover{
+  background-color: #E7E7E7;
+  color: black;
+}
+
+.create_occupation{
+  width: 55%;
+  height: 34px;
+  margin: auto;
+  border: none;
+  background-color: #4D4DFF;
+  font-size: 12pt;
+  color: #black;
+  cursor: pointer;
+  display: none;
+}
+
+.create_occupation:hover{
+  background-color: #E7E7E7;
+  color: black;
+}
+
+
+/*Add employee*/
+.employee-window{
+  background-color: #F5F5F5;
+  overflow: auto;
+  margin:5% 24%;
+  width: 70%;
+  height: 580px;
+  position: fixed;
+  top:0;
+  z-index: 2;
+  display: none;
+}
+
+.closePopup{
+  font-size: 30pt;
+  float: right;
+  color: black;
+  margin-right: 3%;
+}
+
+.closePopup:hover{
+  cursor: pointer;
+  color:silver;
+}
+
+.selectDepartment, .userPriviledge{
+  display: inline-block;
+  margin:1%;
+  width: 38.5%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.selectDepartment:hover, .userPriviledge:hover{
+  cursor: pointer;
+}
+
+.addEmployeeHeading{
+  color: black;
+}
+
+.label1, .label2{
+  display: inline-block;
+  color: black;
+}
+
+.label1{
+  margin-right: 52%;
+}
+
+.employee-details{
+  margin: auto;
+  width: 90%;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.employee-name, .employee-sur{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.employee-gender, .employee-occupation{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.employee-id, .employee-tax{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.employee-salary, .phone{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.streetAddress, .city{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+ .zipCode, .province{
+  display: inline-block;
+  margin:1%;
+  width: 38%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.country, .employeePicture{
+ display: inline-block;
+ margin:1%;
+ width: 38%;
+ height: 32px;
+ border: none;
+ background-color: #E7E7E7;
+ font-size: 12pt;
+ color: black;
+}
+
+.employeePicture::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.employeePicture::before {
+  content: 'upload picture';
+}
+
+.employeePicture:hover{
+  cursor: pointer;
+}
+
+.employee-submit{
+  width: 38%;
+  height: 38px;
+  background-color: #4D4DFF;
+  cursor: pointer;
+  border: none;
+  font-size: 12pt;
+  color: #black;
+}
+
+.employee-submit:hover{
+  background-color: #E7E7E7;
+  color: black;
+}
+
+.leave_request_popup{
+  background-color: #F5F5F5;
+  overflow: auto;
+  margin:5% 22%;
+  width: 70%;
+  height: 65%;
+  position: fixed;
+  top:0;
+  z-index: 2;
+  display: none;
+  }
+
+  .close_leave{
+    font-size: 30pt;
+    float: right;
+    color: black;
+    margin-right: 3%;
+    cursor: pointer;
+  }
+
+  .close_leave:hover{
+    cursor: pointer;
+    color:silver;
+  }
+
+.leave_content{
+  margin-top: 5%;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.leave_requests, .send_leave_Request{
+  display: inline-block;
+  width: 49%;
+  padding-top:0.8%;
+  height: 4.5vh;
+  text-align: center;
+  background-color: #E7E7E7;
+  font-size: 13.5pt;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.leave_requests:hover, .send_leave_Request:hover{
+  border-left: 2px solid #4D4DFF;
+}
+
+.show_leave_request{
+  margin-top: 2%;
+}
+
+.leave_list{
+  text-align: center;
+  margin: 1%;
+}
+
+.emp_leave_list{
+  text-align: center;
+  margin: 1%;
+  display: block;
+}
+
+.emp_leave_list .leave_type, .emp_leave_list .additional_info, .emp_leave_list .due_date,.emp_leave_list .leave_status{
+  display: inline-block;
+  background-color: #E7E7E7;
+  text-align: center;
+  width: 23%;
+  height: 5vh;
+  padding-top: 10px;
+  font-size: 13pt;
+  overflow: hidden;
+}
+
+.leave_type, .additional_info, .due_date, .leave_status{
+  display: inline-block;
+  text-align: center;
+  width: 23%;
+  font-size: 13pt;
+}
+
+.show_leave_request{
+  display: block;
+}
+
+.send_leave_info{
+  display: none;
+}
+
+.send_leave_info h3{
+  text-align: center;
+}
+
+.leave_fill_form{
+  margin: auto;
+  width: 75%;
+  margin-top: 25px;
+  text-align: center;
+  color: black;
+}
+
+.reason_for_leave, .leaveType, .leave_date, .submit_request{
+  display: block;
+  margin:1%
+}
+
+.reason_for_leave{
+  width: 95%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.reason_for_leave:focus{
+  outline: none;
+}
+
+.leaveType{
+  width: 95%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+  cursor: pointer;
+}
+
+.leave_date{
+  width: 95%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 13pt;
+  color: black;
+}
+
+.submit_request{
+  width: 55%;
+  height: 34px;
+  margin: auto;
+  border: none;
+  background-color: #4D4DFF;
+  font-size: 12pt;
+  color: #black;
+  cursor: pointer;
+}
+
+.submit_request:hover{
+  background-color: #E7E7E7;
+  color: black;
+}

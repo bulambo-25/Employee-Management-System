@@ -1,0 +1,152 @@
+
+body{
+  width: 100%;
+  margin:0 auto;
+  font-family: 'Roboto', sans-serif;
+  background-color: #E7E7E7;
+}
+
+.update_accesses{
+ margin-top: 2%;
+ margin-left: 20%;
+}
+
+.selected_access{
+  width: 15%;
+  height: 32px;
+  border: none;
+  background-color: #F5F5F5;
+  font-size: 12pt;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+}
+
+.submit_access{
+  width: 15%;
+  height: 32px;
+  border: none;
+  background-color: #4D4DFF;
+  font-size: 12pt;
+  color: silver;
+  text-align: center;
+  cursor: pointer;
+}
+
+ .submit_access label{
+   font-size: 13.5pt;
+ }
+
+.submit_access:hover{
+  background-color: #F5F5F5;
+  color: black;
+  border: 2px solid #4D4DFF;
+}
+
+.submit_access:active{
+  background-color: #4D4DFF;
+}
+
+.worker{
+  width: 25%;
+  background-color: #F5F5F5;
+  height: 55vh;
+  margin-top: 1%;
+  margin-left: 20%;
+  position: fixed;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.emp_picture{
+  background-color: white;
+  width: 125px;
+  height: 125px;
+  margin: auto;
+  margin-top: 5%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.emp_picture img{
+  object-fit: contain;
+}
+
+.emp_name{
+  text-align: center;
+  margin-top: 2%;
+}
+
+.emp_name input{
+  height: 2em;
+  width: 95%;
+  border: none;
+  background-color: #E7E7E7;
+  margin: 1%;
+  font-size: 12pt;
+}
+
+.address{
+  width: 25%;
+  background-color: #F5F5F5;
+  height: 38vh;
+  margin-top: 4%;
+  margin-left: 46%;
+  position: fixed;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.emp_address{
+  text-align: center;
+  margin-top: 2%;
+}
+
+.info_emp{
+  text-align: center;
+  margin-top: 2%;
+  font-size: 14pt;
+}
+
+.emp_address input{
+  height: 2em;
+  width: 95%;
+  border: none;
+  background-color: #E7E7E7;
+  margin: 1%;
+  font-size: 12pt;
+}
+
+.department_data{
+  width: 25%;
+  background-color: #F5F5F5;
+  height: 32vh;
+  margin-top: 4%;
+  margin-left: 72%;
+  position: fixed;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.info_department{
+  text-align: center;
+  margin-top: 2%;
+  font-size: 14pt;
+}
+
+.emp_department{
+  text-align: center;
+  margin-top: 2%;
+}
+
+.emp_address input{
+  height: 2em;
+  width: 95%;
+  border: none;
+  background-color: #E7E7E7;
+  margin: 1%;
+  font-size: 12pt;
+}
