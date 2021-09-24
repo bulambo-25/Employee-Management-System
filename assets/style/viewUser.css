@@ -1,0 +1,97 @@
+
+body{
+  width: 100%;
+  margin:0 auto;
+  font-family: 'Roboto', sans-serif;
+  background-color: #E7E7E7;
+}
+
+.worker{
+  width: 25%;
+  background-color: #F5F5F5;
+  height: 38vh;
+  margin-top: 4%;
+  margin-left: 20%;
+  position: fixed;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.emp_name{
+  text-align: center;
+  margin-top: 2%;
+}
+
+.emp_name input{
+  height: 2em;
+  width: 95%;
+  border: none;
+  background-color: #E7E7E7;
+  margin: 1%;
+  font-size: 12pt;
+}
+
+.address{
+  width: 25%;
+  background-color: #F5F5F5;
+  height: 38vh;
+  margin-top: 4%;
+  margin-left: 46%;
+  position: fixed;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.emp_address{
+  text-align: center;
+  margin-top: 2%;
+}
+
+.info_emp{
+  text-align: center;
+  margin-top: 2%;
+  font-size: 14pt;
+}
+
+.emp_address input{
+  height: 2em;
+  width: 95%;
+  border: none;
+  background-color: #E7E7E7;
+  margin: 1%;
+  font-size: 12pt;
+}
+
+.department_data{
+  width: 25%;
+  background-color: #F5F5F5;
+  height: 25.5vh;
+  margin-top: 4%;
+  margin-left: 72%;
+  position: fixed;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.info_department{
+  text-align: center;
+  margin-top: 2%;
+  font-size: 14pt;
+}
+
+.emp_department{
+  text-align: center;
+  margin-top: 2%;
+}
+
+.emp_address input{
+  height: 2em;
+  width: 95%;
+  border: none;
+  background-color: #E7E7E7;
+  margin: 1%;
+  font-size: 12pt;
+}

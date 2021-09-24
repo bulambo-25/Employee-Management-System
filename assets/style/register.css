@@ -1,0 +1,53 @@
+body{
+  background-color: #222222;
+}
+
+.form{
+  margin-top: 155px;
+}
+
+.adminForm{
+  height: 150px;
+  width: 25%;
+  margin:auto;
+  text-align: center;
+  color: white;
+}
+
+.adminName, .adminPass{
+  display: block;
+  margin:auto;
+  margin-top: 5px;
+  height: 25px;
+  width: 100%;
+  border: none;
+  font-size: 12pt;
+}
+
+.register{
+  margin:auto;
+  margin-top: 5px;
+  height: 5vh;
+  width: 101.2%;
+  border: none;
+  font-size: 12pt;
+  cursor: pointer;
+  background-color:#63CCC8;
+}
+
+.error{
+  margin-top: 3vh;
+  text-align: center;
+  font-size: 14pt;
+  color: #A62C2A;
+}
+
+.in{
+  margin-top: 17vh;
+  text-align: center;
+}
+
+.in a{
+  color:silver;
+  font-size: 13pt;
+}
