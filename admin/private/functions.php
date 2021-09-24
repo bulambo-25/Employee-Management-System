@@ -1,6 +1,4 @@
 
-
-
 <?php
 
 require_once("Database.php");
@@ -81,7 +79,7 @@ function has_length($value, $options=[]) {
 function authenticate()
 {
 
-  if(!isset($_SESSION['user']))
+  if(!isset($_SESSION['admin']))
   {
     header("Location: login.php");
   }
@@ -90,7 +88,7 @@ function authenticate()
 
 function authenticateSign(){
 
-  if(isset($_SESSION['user']))
+  if(isset($_SESSION['admin']))
   {
     header("Location: index.php");
   }
@@ -105,8 +103,11 @@ function startSession()
 
 function logout() {
 
-  destroySession();
-  header("Location: login.php");
+  if (isset($_SESSION['admin']))
+  {
+    destroySession();
+    header("Location: login.php");
+  }
 }
 
 function loadDepartments(){
@@ -125,7 +126,7 @@ function showEmployees(){
   $pdo = connect();
   $data = $pdo->query("SELECT * FROM worker")->fetchAll();
   foreach ($data as $row) {
-    echo "<a href='" ."viewUser.php?user=" . $row['employee_id'] ."'><div><div>" . $row['first_name'] .
+    echo "<a href='" ."viewUser.php?user=" . $row['employee_id'] ."'><div><div><img src='../../employee_images/".$row['picture']."'></div><div>" . $row['first_name'] .
     "</div><div>" .$row['second_name'] . "</div><div>" . $row['identity_num'] . "</div><div>". $row['tax_num'] ."</div></div></a>";
 }
 
@@ -166,7 +167,7 @@ function show_user_details($user){
 
     echo "<div class='worker'>
         <div class='emp_picture'>
-        <img src=".$value['picture'].">
+        <img src='../../employee_images/".$value['picture']."'>
         </div>
         <div class='emp_name'>
           <input type='text' name='' value='Name: ".$value['first_name']."' disabled>
@@ -205,6 +206,21 @@ function show_user_details($user){
     </div>";
   }
 
+}
+
+function count_admins($user){
+  $pdo = connect();
+  $stmt = $pdo->prepare("SELECT count(*) FROM admin WHERE name = ?");
+  $stmt->execute([$user]);
+  $count = $stmt->fetchColumn();
+  return $count;
+}
+
+function insert_admin($user, $pass){
+  $pdo = connect();
+  $sql = 'INSERT INTO admin( name, password ) VALUES(?,?)';
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([$user, $pass]);
 }
 
 ?>
