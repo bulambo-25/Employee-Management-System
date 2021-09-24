@@ -1,6 +1,8 @@
 
 <?php
 require_once 'crud.php';
+require_once 'functions.php';
+startSession();
 
 class Employee{
 
@@ -99,7 +101,7 @@ private $occupation;
     return $this->picture;
  }
 
- private function generatePassword($passWord){
+ private function generatePassword(){
  $str = "Emp";
  $passWord = $str.$this->identity;
  return $passWord;
@@ -133,9 +135,31 @@ function is_ajax_request2() {
     $_SERVER['HTTP_X_REQUESTED_WITH'] == 'ajaxRequest';
 }
 
+function is_ajax_request_3() {
+  return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WITH'] == 'addLeave';
+}
+
+function is_ajax_request_5() {
+  return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WITH'] == 'updateAccess';
+}
+
+if(is_ajax_request_3()){
+  $leave_name = $_POST['leave_type'];
+  $crud = new Crud();
+  $crud->insert_leave_type($leave_name);
+}
+
 if(is_ajax_request2()){
   $department = $_POST['myDepartment'];
   $crud->insertIntoDepartments($department);
+}
+
+if(is_ajax_request_5()){
+  $access_type  = $_POST['selecte_access'];
+  $employee_id  = $_SESSION['id'];
+  $crud->update_access($access_type, $employee_id);
 }
 
     if(is_ajax_request()) {
@@ -154,16 +178,56 @@ if(is_ajax_request2()){
       $gender     = $_POST['gender'];
       $occupation = $_POST['occupation'];
       $privilege  = $_POST['priviledge'];
-      $picture    = $_FILES['picture']['name'];
+
+      $saveDir = "../../employee_images/";
+      $picture = "";
+
+      if(isset($_FILES['picture'])){
+         $errors= array();
+         $file_name = $_FILES['picture']['name'];
+         $file_size =$_FILES['picture']['size'];
+         $file_tmp =$_FILES['picture']['tmp_name'];
+         $file_type=$_FILES['picture']['type'];
+         $file_ext=strtolower(end(explode('.',$_FILES['picture']['name'])));
+
+         $extensions= array("jpeg","jpg");
+
+         if(in_array($file_ext,$extensions)=== false){
+            $errors[]="extension not allowed, please choose a JPEG.";
+         }
+
+         if($file_size > 2097152){
+            $errors[]='File size must be excately 2 MB';
+         }
+
+         $picture      = $saveDir . $identity . '.jpg';
+         $database_pic = $identity . '.jpg';
+
+         if(empty($errors)==true){
+            move_uploaded_file($file_tmp, $picture);
+
+            $resource = imagecreatefromjpeg($picture);
+
+            $scaled = imagescale($resource, 125);
+            $im2 = imagecrop($scaled, ['x' => 0, 'y' => 0, 'width' => 125, 'height' => 125]);
+            if ($im2 !== FALSE) {
+
+                imagejpeg($im2, $picture);
+                imagedestroy($im2);
+              }
+
+              imagedestroy($resource);
+
+         }
+      }
 
       $registration = new Employee($name, $surname, $identity, $department, $salary,
-      $taxNumber, $street, $zipCode, $province, $city, $email, $phone, $privilege, $picture,
+      $taxNumber, $street, $zipCode, $province, $city, $email, $phone, $privilege, $database_pic,
       $gender, $occupation);
       $obj = $registration;
 
       $crud = new Crud();
       $crud->insertIntoWorker($obj);
-
     }
     else{
       return;
