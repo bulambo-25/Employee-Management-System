@@ -20,7 +20,12 @@ require_once("passwords.php");
                 PDO::ATTR_EMULATE_PREPARES   => FALSE,
             );
             $dsn = 'mysql:host='.DBHOST.';dbname='.DB.';charset='.CHARSET;
+
+            try{
             self::$instance = new PDO($dsn, DBUSER, DBPASS, $opt);
+          }catch(PDOException $e){
+            throw new PDOException($e->getMessage(), (int)$e->getCode());
+          }
         }
         return self::$instance;
     }
