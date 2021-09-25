@@ -161,4 +161,24 @@ $(".submit_access").click(()=>{
   xhr.send(form_data);
 })
 
+//update admin pic
+$(".update_image").click(()=>{
+  let form = document.querySelector("#admin_pic_form");
+  let action = form.getAttribute("action");
+  let form_data = new FormData(form);
+
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', action, true);
+  xhr.setRequestHeader('X-Requested-With', 'updateAdminPic');
+  xhr.onreadystatechange = function () {
+    if(xhr.readyState == 4 && xhr.status == 200) {
+      var result = xhr.responseText;
+      if(result){
+        alert("admin image updated successfully");
+      }
+    }
+  };
+  xhr.send(form_data);
+})
+
 })
