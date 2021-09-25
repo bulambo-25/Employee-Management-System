@@ -208,19 +208,39 @@ function show_user_details($user){
 
 }
 
-function count_admins($user){
+//registration form
+function count_admins($email){
   $pdo = connect();
-  $stmt = $pdo->prepare("SELECT count(*) FROM admin WHERE name = ?");
-  $stmt->execute([$user]);
+  $stmt = $pdo->prepare("SELECT count(*) FROM admin WHERE email = ?");
+  $stmt->execute([$email]);
   $count = $stmt->fetchColumn();
   return $count;
 }
 
-function insert_admin($user, $pass){
+//login form
+function count_admins_login($email, $password){
   $pdo = connect();
-  $sql = 'INSERT INTO admin( name, password ) VALUES(?,?)';
+  $stmt = $pdo->prepare("SELECT count(*) FROM admin WHERE email = ? AND password=?");
+  $stmt->execute([$email, $password]);
+  $count = $stmt->fetchColumn();
+  return $count;
+}
+
+function insert_admin($name,$surname, $user, $pass, $picture){
+  $pdo = connect();
+  $sql = 'INSERT INTO admin( name, surname, email, password, picture ) VALUES(?,?,?,?,?)';
   $stmt = $pdo->prepare($sql);
-  $stmt->execute([$user, $pass]);
+  $stmt->execute([$name,$surname, $user, $pass,$picture]);
+}
+
+function get_admin_id(){
+  $email     = $_SESSION['admin'];
+  $pdo       = connect();
+  $stmt      = $pdo->prepare("SELECT * FROM admin WHERE email=?");
+  $stmt->execute([$email]);
+  $admin_id  = $stmt->fetch();
+
+  return $admin_id;
 }
 
 ?>
