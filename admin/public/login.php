@@ -5,29 +5,27 @@ authenticateSign();
 
 <?php
 
-$pdo = Database::instance();
-$error = $user = $pass = "";
+$error = $email = $password = "";
 
 if(isset($_POST['adminName']))
 {
-  $user = $_POST['adminName'];
-  $pass = $_POST['adminPass'];
+  $email    = $_POST['adminName'];
+  $password = $_POST['adminPass'];
 
-  if($user == "" || $pass == "")
+  if($email == "" || $password == "")
   {
     $error = "Not all fields were entered";
   }
   else
   {
-    $stmt = $pdo->prepare("SELECT count(*) FROM admin WHERE name = ? AND password = ?");
-    $stmt->execute([$user, $pass]);
-    $count = $stmt->fetchColumn();
+
+    $count = count_admins_login($email, $password);
 
     if($count == 0){
       $error = "Username or password invalid";
     }else{
-      $_SESSION['admin'] = $user;
-      $_SESSION['admin_pass'] = $pass;
+      $_SESSION['admin'] = $email;
+      $_SESSION['admin_pass'] = $password;
       header("Location: index.php");
     }
   }
@@ -54,7 +52,7 @@ if(isset($_POST['adminName']))
           <h2 style="font-family: 'Open Sans', sans-serif;
           font-family: 'Roboto Condensed', sans-serif;">Login</h2>
         <form action="login.php" method="post">
-          <input class="adminName" type="text" name="adminName" placeholder="username">
+          <input class="adminName" type="text" name="adminName" placeholder="email">
           <input class="adminPass" type="password" name="adminPass" placeholder="password">
           <input class="login" type="submit" value="Login">
         </form>
