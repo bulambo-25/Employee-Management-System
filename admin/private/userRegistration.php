@@ -145,6 +145,11 @@ function is_ajax_request_5() {
     $_SERVER['HTTP_X_REQUESTED_WITH'] == 'updateAccess';
 }
 
+function is_ajax_request_6() {
+  return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WITH'] == 'updateAdminPic';
+}
+
 if(is_ajax_request_3()){
   $leave_name = $_POST['leave_type'];
   $crud = new Crud();
@@ -160,6 +165,55 @@ if(is_ajax_request_5()){
   $access_type  = $_POST['selecte_access'];
   $employee_id  = $_SESSION['id'];
   $crud->update_access($access_type, $employee_id);
+}
+
+if(is_ajax_request_6()){
+
+  $saveDir = "../admin_images/";
+  $database_pic = "";
+  $admin_id = get_admin_id();
+
+  if(isset($_FILES['pic'])){
+     $errors= array();
+     $file_name = $_FILES['pic']['name'];
+     $file_size =$_FILES['pic']['size'];
+     $file_tmp =$_FILES['pic']['tmp_name'];
+     $file_type=$_FILES['pic']['type'];
+     $file_ext=strtolower(end(explode('.',$_FILES['pic']['name'])));
+
+     $extensions= array("jpeg","jpg");
+
+     if(in_array($file_ext,$extensions)=== false){
+        $errors[]="extension not allowed, please choose a JPEG.";
+     }
+
+     if($file_size > 2097152){
+        $errors[]='File size must be excately 2 MB';
+     }
+
+     $picture      = $saveDir . $admin_id['admin_id'] . '.jpg';
+     $database_pic = $admin_id['admin_id'] . '.jpg';
+
+     if(empty($errors)==true){
+        move_uploaded_file($file_tmp, $picture);
+
+        $resource = imagecreatefromjpeg($picture);
+
+        $scaled = imagescale($resource, 125);
+        $im2 = imagecrop($scaled, ['x' => 0, 'y' => 0, 'width' => 125, 'height' => 125]);
+        if ($im2 !== FALSE) {
+
+            imagejpeg($im2, $picture);
+            imagedestroy($im2);
+          }
+
+          imagedestroy($resource);
+
+     }
+  }
+
+  $crud->update_admin_picture($database_pic);
+
 }
 
     if(is_ajax_request()) {
@@ -180,7 +234,7 @@ if(is_ajax_request_5()){
       $privilege  = $_POST['priviledge'];
 
       $saveDir = "../../employee_images/";
-      $picture = "";
+      $database_pic = "";
 
       if(isset($_FILES['picture'])){
          $errors= array();
