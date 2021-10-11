@@ -13,9 +13,9 @@ $_SESSION['id'] = $user;
   <form id="access_form" action="../private/userRegistration.php" method="post">
     <label for="update_user_access">Update employee access:</label>
     <select class="selected_access" name="selecte_access">
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
+      <option value="Low">LOW</option>
+      <option value="Medium">MEDIUM</option>
+      <option value="High">HIGH</option>
     </select>
     <input class="submit_access" type="button" name="submit_access" value="update_access">
   </form>
