@@ -134,11 +134,4 @@ $crud->createTables('CREATE TABLE IF NOT EXISTS department(
   PRIMARY KEY(department_id)
 );');
 
-$crud->createTables('CREATE TABLE IF NOT EXISTS admin(
-  admin_id INT AUTO_INCREMENT,
-  name VARCHAR(100),
-  password VARCHAR(100),
-  PRIMARY KEY(admin_id)
-);');
-
  ?>

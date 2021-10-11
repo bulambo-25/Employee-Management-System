@@ -118,8 +118,15 @@ $user_id = getUserId();
 </div>
 <!---->
 
-<?php if($access == "Medium") leave_type_popup(); ?>
-<?php if($access == "Medium") load_occupations(); ?>
+<?php
+
+if($access == "Medium"){
+leave_type_popup();
+load_occupations();
+}
+
+?>
+
 <!--Add employee popup form-->
 <div id="employee-popup" class="employee-window">
   <div>
