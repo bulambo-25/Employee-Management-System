@@ -16,11 +16,46 @@ body{
   top: 0;
 }
 
+.my_pic{
+background-color: #E7E7E7;
+height: 4vh;
+text-align: center;
+border: 1px solid #4D4DFF;
+width: 100%;
+font-size: 12pt;
+margin-top: 4vh;
+}
+
+.my_pic::-webkit-file-upload-button {
+  visibility: hidden;
+  display: none;
+}
+
+.my_pic::before {
+  content: 'update image-';
+}
+
+.my_pic:hover{
+  cursor: pointer;
+}
+
+.update_image{
+  background-color: #4D4DFF;
+  height: 4vh;
+  text-align: center;
+  border: 1px solid #4D4DFF;
+  width: 65%;
+  font-size: 12pt;
+  margin-top: 1vh;
+  cursor: pointer;
+}
+
 .picture{
   width: 90px;
   height: 90px;
-  background-color: #111111;
+  background-color: #F5F5F5;
   border-radius: 50px;
+  object-fit: contain;
 }
 
 .ProfilePicture{
@@ -159,7 +194,7 @@ font-weight: bold;
 
 
 .table{
-  margin-top: 3.4%;
+  margin-top: 1%;
   width: 80%;
   margin-left: 0.3%;
   text-align: center;

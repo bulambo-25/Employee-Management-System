@@ -3,27 +3,30 @@ startSession();
 ?>
 
 <?php
-$error = $user = $pass = "";
+$error = $user = $pass = $name = $surname ="";
 
 if (isset($_SESSION['admin'])) destroySession();
 if(isset($_POST['userName']))
 {
-  $user = $_POST['userName'];
-  $pass = $_POST['password'];
+  $email   = $_POST['userName'];
+  $pass    = $_POST['password'];
+  $name    = $_POST['admin_name'];
+  $surname = $_POST['admin_surname'];
+  $picture = NULL;
 
-  if($user == "" || $pass == "")
+  if( $email == "" || $pass == "" || $name == "" || $surname== "")
   {
     $error = "Not all fields were entered";
   }
   else
   {
-    $count = count_admins($user);
+    $count = count_admins($email);
 
     if($count > 0){
-      $error = "That username already exists";
+      $error = "email already exists";
     }
     else{
-      insert_admin($user, $pass);
+      insert_admin($name,$surname, $email, $pass, $picture);
       $error = "Account created please loggin";
     }
   }
@@ -48,6 +51,8 @@ if(isset($_POST['userName']))
           <h2 style="font-family: 'Open Sans', sans-serif;
           font-family: 'Roboto Condensed', sans-serif;">Register</h2>
         <form action="register.php" method="post">
+          <input class="admin_name" type="text" name="admin_name" placeholder="name">
+          <input class="admin_sur" type="text" name="admin_surname" placeholder="surname">
           <input class="adminName" type="email" name="userName" placeholder="email">
           <input class="adminPass" type="password" name="password" placeholder="password">
           <input type="submit" value="Register" class="register">

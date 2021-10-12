@@ -1,5 +1,5 @@
 body{
-  background-color: #222222;
+  background-color: #E7E7E7;
 }
 
 .form{
@@ -11,10 +11,10 @@ body{
   width: 25%;
   margin:auto;
   text-align: center;
-  color: white;
+  color: black;
 }
 
-.adminName, .adminPass{
+.admin_name, .admin_sur, .adminName, .adminPass{
   display: block;
   margin:auto;
   margin-top: 5px;
@@ -22,6 +22,11 @@ body{
   width: 100%;
   border: none;
   font-size: 12pt;
+  background-color: #F5F5F5;
+}
+
+.admin_name:focus, .admin_sur:focus, .adminName:focus, .adminPass:focus{
+  outline: none;
 }
 
 .register{
@@ -32,7 +37,16 @@ body{
   border: none;
   font-size: 12pt;
   cursor: pointer;
-  background-color:#63CCC8;
+  background-color:#4D4DFF;
+}
+
+.register:hover{
+  border: 2px solid #4D4DFF;
+  background-color:#E7E7E7;
+}
+
+.register:active{
+  background-color:#4D4DFF;
 }
 
 .error{
@@ -43,11 +57,11 @@ body{
 }
 
 .in{
-  margin-top: 17vh;
+  margin-top: 26vh;
   text-align: center;
 }
 
 .in a{
-  color:silver;
+  color:black;
   font-size: 13pt;
 }

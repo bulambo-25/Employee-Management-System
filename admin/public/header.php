@@ -4,6 +4,13 @@ startSession();
 authenticate();
  ?>
 
+ <?php
+
+$admin_info = get_admin_id();
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -24,11 +31,32 @@ authenticate();
 <div class="siteNav">
 
 <div class="ProfilePicture">
-  <img class="picture" src="assets/images/Mortal_Kombat_mobile.jpg" alt="">
+  <img class="picture" src="
+
+  <?php
+
+  if($admin_info['picture'] == NULL || $admin_info['picture'] == ""){
+    echo "assets/images/account_circle_black_24dp.svg";
+   }
+   else if(!$admin_info['picture'] == NULL || $admin_info['picture'] == ""){
+     echo "../admin_images/" . $admin_info['picture'];
+   }
+
+   ?>
+
+   " alt="">
+
 </div>
 
 <div class="name">
-Cole Colombia
+<?php  echo $admin_info['name'] . " " . $admin_info['surname']; ?>
+</div>
+
+<div class="pic_form">
+  <form id="admin_pic_form" action="../private/userRegistration.php" method="post">
+    <input class="my_pic" type="file" name="pic">
+    <input class="update_image" type="button" name="submit_profile_pic" value="update image">
+  </form>
 </div>
 
 <div class="adminTasks">

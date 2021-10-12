@@ -73,6 +73,13 @@ public function update_access($access_type, $employee_id){
   $stmt->execute([$access_type, $employee_id]);
 }
 
+public function update_admin_picture($picture){
+  $amin_id = get_admin_id();
+  $sql = 'UPDATE admin SET picture=? WHERE admin_id=?';
+  $stmt = $this->connect->prepare($sql);
+  $stmt->execute([$picture, $amin_id['admin_id']]);
+}
+
 }
 
  ?>
@@ -139,7 +146,10 @@ $crud->createTables('CREATE TABLE IF NOT EXISTS department(
 $crud->createTables('CREATE TABLE IF NOT EXISTS admin(
   admin_id INT AUTO_INCREMENT,
   name VARCHAR(100),
-  password VARCHAR(100),
+  surname VARCHAR(100),
+  email VARCHAR(100),
+  password VARCHAR(250),
+  picture VARCHAR(250),
   PRIMARY KEY(admin_id)
 );');
 
